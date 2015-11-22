@@ -1,0 +1,215 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Untitled Document</title>
+<link href="Css/boilerplate.css" rel="stylesheet" type="text/css">
+<link href="Css/client.css" rel="stylesheet" type="text/css">
+<!-- 
+To learn more about the conditional comments around the html tags at the top of the file:
+paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+
+Do the following if you're using your customized build of modernizr (http://www.modernizr.com/):
+* insert the link to your js here
+* remove the link below to the html5shiv
+* add the "no-js" class to the html tags at the top
+* you can also remove the link to respond.min.js if you included the MQ Polyfill in your modernizr build 
+-->
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="JS/respond.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+function addclient()
+{
+	var _check=Check();
+	if(_check)
+	{
+	var clientid=document.getElementById('txtclientid').value;
+	var clientname=document.getElementById('txtclientname').value;
+	var amount=document.getElementById('txtamtcharge').value;
+	var billid=document.getElementById('selectbill');
+	billid=billid.options[billid.selectedIndex].value;
+	var companyid=document.getElementById('selectcompany');
+	companyid=companyid.options[companyid.selectedIndex].value;
+	
+		var params = "{'ClientId':'"+clientid+"','ClientName':'"+clientname+"','Charge':'"+amount+"','billingId':'"+billid+"','companyId':'"+companyid+"'}";
+        $.ajax
+              ({
+                  type: "POST",
+                  url: "default.aspx/AddClient",
+                  data: params,
+                  contentType: "application/json;charset=utf-8",
+                  dataType: "json",
+                  success: PostSubmit,
+                  error: function(err) {
+
+                  }
+              });
+	}
+  }
+
+function PostSubmit(result)
+{
+	var JsonObject = JSON.parse(result.d);
+            var ADD = JsonObject[0].ADD;
+            if(ADD=="True")
+	          {
+	            alert("Client successfully added");
+	            //window.location="client.html";
+	            location.reload();
+	          }
+	          else if(ADD=="false")
+	          {
+	            alert("Client is not added");
+	          }
+}
+function Check()
+{
+	var clientid=document.getElementById('txtclientid').value;
+	var clientname=document.getElementById('txtclientname').value;
+	var amount=document.getElementById('txtamtcharge').value;
+	var billid=document.getElementById('selectbill');
+	billid=billid.options[billid.selectedIndex].value;
+	var companyid=document.getElementById('selectcompany');
+	companyid=companyid.options[companyid.selectedIndex].value;
+	var checkvalue=false;
+	
+	if(clientid=="")
+	{
+		alert("Please Enter Client Id");
+	}
+	else if(clientname=="")
+	{
+		alert("Please Enter Client Name");
+	}
+	else if(amount=="")
+	{
+		alert("Please Enter Amount ");
+	}
+	else if(billid=="default")
+	{
+		alert("Please Select Bill ");
+	}
+	else if(companyid=="default")
+	{
+		alert("Please Select Company");
+	}
+	else
+	{
+		checkvalue=true;
+	}
+	return checkvalue;
+}
+</script>
+</head>
+<body>
+<div class="gridContainer clearfix">
+  	<div id="divaddclient" class="contact">
+                <fieldset class="contact-inner">
+                <p class="contact-label" style="font-size:24px;text-align:center;">ADD CLIENT</p>
+<table width="100%">
+  <tr>
+    <td><p class="contact-input">
+                  <input type="text" placeholder="CLIENT ID ..." autofocus id="txtclientid">
+                </p></td>
+    <td><p class="contact-input">
+                  <input type="text" placeholder="CLIENT NAME ..." id="txtclientname">
+                </p></td>
+  </tr>
+  <tr>
+    <td><p class="contact-input">
+                  <input type="text" placeholder="AMOUNT CHARGE ..." id="txtamtcharge">
+                </p></td>
+    <td><p class="contact-input">
+        <label for="selectbill" class="select">
+          <select name="subject" id="selectbill">
+             
+          </select>
+        </label>
+      </p></td>
+  </tr>
+  <tr>
+    <td><p class="contact-input">
+        <label for="selectcompany" class="select">
+          <select name="subject" id="selectcompany">
+             
+          </select>
+        </label>
+      </p></td>
+    <td><p class="contact-submit">
+                    <input type="submit" value="ADD CLIENT" onClick="addclient();"></td>
+  </tr>
+</table>
+
+				</fieldset>
+	</div>
+    <div id="divdispaly">
+            	<iframe id="contentframe" height="245px" width="96%" align="middle" src="clientlist.html"></iframe>
+        </div>
+</div>
+<script type="text/javascript">
+billdropdown();
+companydropdown();
+
+	function companydropdown()
+{
+        $.ajax
+              ({
+                  type: "POST",
+                  url: "default.aspx/GetCompany",
+                  contentType: "application/json;charset=utf-8",
+                  dataType: "json",
+                  success: PostCompany,
+                  error: function(err) {
+
+                  }
+              });
+  }
+
+function PostCompany(result)
+{
+	var JsonObject = JSON.parse(result.d);
+    var drop=document.getElementById("selectcompany");
+   	drop.innerHTML='<option value="default" selected>CHOOSE COMPANY ...</option>';
+    for(var i=0;i<JsonObject.length;i++)
+    {
+      drop.innerHTML+='<option value="'+JsonObject[i].COMPANY_ID+'">'+JsonObject[i].NAME+'</option>';
+    }       
+}
+
+function billdropdown()
+{
+        $.ajax
+              ({
+                  type: "POST",
+                  url: "default.aspx/GetBillingDetails",
+                  contentType: "application/json;charset=utf-8",
+                  dataType: "json",
+                  success: PostBilling,
+                  error: function(err) {
+
+                  }
+              });
+  }
+
+function PostBilling(result)
+{
+	var JsonObject = JSON.parse(result.d);
+    var drop=document.getElementById("selectbill");
+   	drop.innerHTML='<option value="default" selected>CHOOSE BILLING DETAIL ...</option>';
+    for(var i=0;i<JsonObject.length;i++)
+    {
+      drop.innerHTML+='<option value="'+JsonObject[i].BILLING_ID+'">'+JsonObject[i].BILL_TO+'</option>';
+    }       
+}
+</script>
+</body>
+</html>

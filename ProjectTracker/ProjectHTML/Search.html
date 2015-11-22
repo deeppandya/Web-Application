@@ -1,0 +1,136 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Untitled Document</title>
+<link href="Css/boilerplate.css" rel="stylesheet" type="text/css">
+<link href="Css/projectpage.css" rel="stylesheet" type="text/css">
+<!-- 
+To learn more about the conditional comments around the html tags at the top of the file:
+paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+
+Do the following if you're using your customized build of modernizr (http://www.modernizr.com/):
+* insert the link to your js here
+* remove the link below to the html5shiv
+* add the "no-js" class to the html tags at the top
+* you can also remove the link to respond.min.js if you included the MQ Polyfill in your modernizr build 
+-->
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="JS/respond.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+var query = window.location.search.substring(1);
+var str=query.split("&");
+var foruser=str[0].split("=");
+var user_id=foruser[1];
+var forfname=str[1].split("=");
+var fname=forfname[1];
+var forlname=str[2].split("=");
+var lname=forlname[1];
+var forbugid=str[3].split("=");
+var bug_id=forbugid[1];
+
+function btnclick()
+{
+window.location="Profile.html";
+}
+function loadSearchList()
+{
+var params = "{'user_id':'"+user_id+"','fname':'"+fname+"','lname':'"+lname+"','bug_id':'"+bug_id+"'}";
+	$.ajax
+              ({
+                  type: "POST",
+                  url: "default.aspx/GetSearchResult",
+				  data:params,
+                  contentType: "application/json;charset=utf-8",
+                  dataType: "json",
+                  success: PostSearch,
+                  error: function(err) {
+						alert(err.d);
+                  }
+              });
+}
+
+function PostSearch(result)
+{
+ var JsonObject = JSON.parse(result.d);
+ var orlist=document.getElementById('order');
+  for ( var _object in JsonObject )          
+      {
+      var enddt;
+      if(JsonObject[_object].END== "1/1/0001 12:00:00 AM")
+      {
+        enddt='NOT SET';
+      }
+      else
+      {
+        enddt=JsonObject[_object].END;
+      }
+//      var type=JsonObject[_object].PROJECT_TYPE_ID;
+//      if(type=='WEBEX')
+//      {
+//          orlist.innerHTML+='<li id="li'+_object+'" style="background:#0066FF">';
+//      }
+//      else if(type=='PHONECALL')
+//      {
+//        orlist.innerHTML+='<li id="li'+_object+'" style="background:#006600">';
+//      }
+//      else if(type=='EMAIL')
+//      {
+//        orlist.innerHTML+='<li id="li'+_object+'" style="background:#FF1919">';
+//      }
+          orlist.innerHTML+='<li id="li'+_object+'">';
+	        orlist.innerHTML+='<table width="100%" style="font-size:16px;font-weight:500;">'+
+  '<tr>'+
+    '<td><h2>Company Name : '+JsonObject[_object].NAME+'  </h2></td>'+
+	'<td>Client Name : '+JsonObject[_object].CLIENT_NAME+' </td>'+
+  '</tr>'+
+  '<tr>'+
+    '<td>Bug Id : '+JsonObject[_object].BUG_ID+'</td>'+
+    '<td>Project Type : '+JsonObject[_object].PROJECT_TYPE_ID+'</td>'+
+  '</tr>'+
+  '<tr>'+
+    '<td width="50%">Start Time : '+JsonObject[_object].START+'</td>'+
+    '<td width="50%">End Time : '+enddt+'</td>'+
+  '</tr>'+
+  '<tr>'+
+    '<td>Contact Person : '+JsonObject[_object].CONTACT_PERSON+'</td>'+
+    '<td>Assign To :  '+JsonObject[_object].USER_ID+'</td>'+
+  '</tr>'+
+  '<tr>'+
+    '<td colspan="2">Action Taken : '+JsonObject[_object].ACTION_TAKEN+'</td>'+
+ '</tr>'+
+  '<tr>'+
+    '<td colspan="2">Description : '+JsonObject[_object].BUG_DESC+'</td>'+
+  '</tr>'+
+'</table>';
+	        //orlist.innerHTML+='<h3><input id="gobutton" type="submit" value="VIEW" onclick="btnclick(this);"/></h3>';
+	        orlist.innerHTML+='</li>';
+	       
+	       
+      }
+}
+</script>
+</head>
+<body>
+<div class="gridContainer clearfix" id="divlist">
+<div id="divaddbtn">
+	<label style="color:#deeef4;font-size:28px;font-weight:bold;">Search Results</label>
+</div>
+  <ol class="circle-list" id="order">
+  <script type="text/javascript">
+  loadSearchList();
+  </script>
+  </ol>
+</div>
+</body>
+</html>
+

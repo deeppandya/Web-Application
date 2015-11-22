@@ -1,0 +1,20 @@
+C:\Users\ab\Desktop\ProjectTracker\ProjectHTML\bin\ProjectHTML.dll
+C:\Users\ab\Desktop\ProjectTracker\ProjectHTML\bin\ProjectHTML.pdb
+C:\Users\ab\Desktop\ProjectTracker\ProjectHTML\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ab\Desktop\ProjectTracker\ProjectHTML\obj\Debug\ProjectHTML.dll
+C:\Users\ab\Desktop\ProjectTracker\ProjectHTML\obj\Debug\ProjectHTML.pdb
+F:\Projects\Project Tracker Latest\ProjectTracker\ProjectHTML\bin\ProjectHTML.dll
+F:\Projects\Project Tracker Latest\ProjectTracker\ProjectHTML\bin\ProjectHTML.pdb
+F:\Projects\Project Tracker Latest\ProjectTracker\ProjectHTML\obj\Debug\ResolveAssemblyReference.cache
+F:\Projects\Project Tracker Latest\ProjectTracker\ProjectHTML\obj\Debug\ProjectHTML.dll
+F:\Projects\Project Tracker Latest\ProjectTracker\ProjectHTML\obj\Debug\ProjectHTML.pdb
+F:\Projects\Project Tracker Latest\ProjectTracker\ProjectHTML\bin\Telerik.Charting.dll
+F:\Projects\Project Tracker Latest\ProjectTracker\ProjectHTML\bin\Telerik.Web.Design.dll
+F:\Projects\Project Tracker Latest\ProjectTracker\ProjectHTML\bin\Telerik.Web.UI.dll
+F:\Projects\Project Tracker Latest\ProjectTracker\ProjectHTML\bin\Telerik.Charting.xml
+F:\Projects\Project Tracker Latest\ProjectTracker\ProjectHTML\bin\Telerik.Web.UI.xml
+C:\Users\ab\Desktop\Project Tracker Latest\ProjectTracker\ProjectHTML\bin\ProjectHTML.dll
+C:\Users\ab\Desktop\Project Tracker Latest\ProjectTracker\ProjectHTML\bin\ProjectHTML.pdb
+C:\Users\ab\Desktop\Project Tracker Latest\ProjectTracker\ProjectHTML\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ab\Desktop\Project Tracker Latest\ProjectTracker\ProjectHTML\obj\Debug\ProjectHTML.dll
+C:\Users\ab\Desktop\Project Tracker Latest\ProjectTracker\ProjectHTML\obj\Debug\ProjectHTML.pdb

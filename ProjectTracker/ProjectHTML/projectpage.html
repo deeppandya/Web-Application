@@ -1,0 +1,118 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Untitled Document</title>
+<link href="Css/boilerplate.css" rel="stylesheet" type="text/css">
+<link href="Css/projectpage.css" rel="stylesheet" type="text/css">
+<!-- 
+To learn more about the conditional comments around the html tags at the top of the file:
+paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+
+Do the following if you're using your customized build of modernizr (http://www.modernizr.com/):
+* insert the link to your js here
+* remove the link below to the html5shiv
+* add the "no-js" class to the html tags at the top
+* you can also remove the link to respond.min.js if you included the MQ Polyfill in your modernizr build 
+-->
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="JS/respond.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+var JsonObject;
+function PostSubmit(result)
+ {
+ //alert(result.d);
+   JsonObject = JSON.parse(result.d);
+ var orlist=document.getElementById('order');
+  for ( var _object in JsonObject )          
+      {
+      var enddt;
+      if(JsonObject[_object].END== "1/1/0001 12:00:00 AM")
+      {
+        enddt='NOT SET';
+      }
+      else
+      {
+        enddt=JsonObject[_object].END;
+      }
+          orlist.innerHTML+='<li id="li'+_object+'">';
+	        orlist.innerHTML+='<h2 id="pname'+_object+'">Company Name : '+JsonObject[_object].NAME+'</h2> ';
+	        orlist.innerHTML+='<h3 id="bid'+_object+'">Client Name : '+JsonObject[_object].CLIENT_NAME+'</h3>';
+			orlist.innerHTML+='<h3 id="bid'+_object+'">Bug Id : '+JsonObject[_object].BUG_ID+'</h3>';
+	        orlist.innerHTML+='<h3 id="st'+_object+'">Start Time : '+JsonObject[_object].START+'</h3>';
+	        orlist.innerHTML+='<h3 id="et'+_object+'">End Time : '+enddt+'</h3>';
+	        orlist.innerHTML+='<h3><input id="gobutton'+_object+'" type="submit" value="EDIT" onclick="btnclick(this);"/></h3>';
+	        orlist.innerHTML+='</li>';
+      }
+	 //var json=JsonObject.count;
+	 //alert(json);
+ }
+
+function btnclick(sender)
+{
+	var id=sender.id;
+	var n=id.split('gobutton');
+	//alert(n[1]);
+	//var n=id.substring(8,id.length()-1);
+	//var bid=document.getElementById('bid'+n[1]).innerHTML;
+	var bid=JsonObject[n[1]].BUG_ID;
+	//bid=bid[1];
+	//alert(bid);
+	window.location="EditPage.html?bid="+bid;
+	
+}
+function loadList()
+{
+var User=sessionStorage.userid;
+var params = "{'user_id':'"+User+"'}";
+$.ajax
+              ({
+                  type: "POST",
+                  url: "default.aspx/GetProjects",
+				  data:params,
+                  contentType: "application/json;charset=utf-8",
+                  dataType: "json",
+                  success: PostSubmit,
+                  error: function(err) {
+
+                  }
+              });
+/*for(var i=1;i<JsonObject.length;i++)
+{
+	document.write('<li id="li'+i+'">');
+	document.write('<h2 id="pname'+i+'">'+JsonObject[i].PROJECT_NAME+'</h2> ');
+	document.write('<h3 id="bid'+i+'">'+JsonObject[i].BUG_ID+'</h3>');
+	document.write('<h3 id="st'+i+'">'+JsonObject[i].START+'</h3>');
+	document.write('<h3 id="et'+i+'">'+JsonObject[i].END+'</h3>');
+	document.write('<h3><input id="gobutton'+i+'" type="submit" value="EDIT" onclick="btnclick(this);"/></h3>');
+	document.write('</li>');
+}*/
+}
+function addproject()
+{
+window.location="Addproject.html";
+}
+</script>
+</head>
+<body>
+<div class="gridContainer clearfix" id="divlist">
+<div id="divaddbtn">
+	<input id="gobutton" type="submit" value="ADD NEW BUG DETAIL" onclick="addproject();" width="150px" style="float:right;"/>
+</div>
+  <ol class="circle-list" id="order">
+	<script type="text/javascript">
+  loadList();
+  </script>
+  </ol>
+</div>
+</body>
+</html>

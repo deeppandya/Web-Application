@@ -1,0 +1,54 @@
+<publishData>
+  <publishTarget publishUrl="D:\Projects\Working\MobileDevelopement\PublishWebsite\">
+    <file relUrl="bin/AndroidWebApp.pdb" publishTime="05/13/2013 16:04:01" />
+    <file relUrl="images/close.png" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="Home.aspx" publishTime="05/06/2013 17:40:54" />
+    <file relUrl="bin/AndroidWebApp.dll" publishTime="05/13/2013 16:04:03" />
+    <file relUrl="StyleSheet/skeleton.css" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="images/bg2.jpg" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="images.jpg" publishTime="03/26/2013 12:19:48" />
+    <file relUrl="ForgetPassword.aspx" publishTime="04/12/2013 17:15:12" />
+    <file relUrl="StyleSheet/base.css" publishTime="05/06/2013 16:57:31" />
+    <file relUrl="Handler1.ashx" publishTime="04/05/2013 17:22:49" />
+    <file relUrl="images/bg.jpg" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="images/menu8.gif" publishTime="03/26/2013 12:19:48" />
+    <file relUrl="images/close-hover.png" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="images/login_active.png" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="images/login_hover.png" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="StyleSheet/AndroidSecurity.css" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="images/login.png" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="Web.config" publishTime="04/25/2013 14:12:49" />
+    <file relUrl="Default.aspx" publishTime="05/08/2013 16:20:56" />
+    <file relUrl="images/form-bg.png" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="images/FootPrintsLOGOFinalEdited2.png" publishTime="05/06/2013 16:57:26" />
+    <file relUrl="images/bg_form.jpg" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="StyleSheet/layout.css" publishTime="04/03/2013 16:08:04" />
+    <file relUrl="images/gradientwhite.jpg" publishTime="03/26/2013 12:19:48" />
+    <file relUrl="StyleSheet/VerticalMenu.css" publishTime="05/06/2013 16:57:31" />
+  </publishTarget>
+  <publishTarget publishUrl="D:\Projects\Working\MobileDevelopement\PublishWebservice\">
+    <file relUrl="bin/AndroidWebApp.pdb" publishTime="03/29/2013 18:37:30" />
+    <file relUrl="images/close.png" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="Home.aspx" publishTime="03/29/2013 18:35:52" />
+    <file relUrl="StyleSheet/skeleton.css" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="images/bg2.jpg" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="Web.config" publishTime="03/26/2013 12:19:48" />
+    <file relUrl="StyleSheet/base.css" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="Handler1.ashx" publishTime="03/26/2013 12:19:48" />
+    <file relUrl="images/bg.jpg" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="images/menu8.gif" publishTime="03/26/2013 12:19:48" />
+    <file relUrl="images/close-hover.png" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="images/login_active.png" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="images/login_hover.png" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="StyleSheet/AndroidSecurity.css" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="images/login.png" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="images.jpg" publishTime="03/26/2013 12:19:48" />
+    <file relUrl="StyleSheet/VerticalMenu.css" publishTime="03/29/2013 18:01:56" />
+    <file relUrl="Default.aspx" publishTime="03/29/2013 18:01:56" />
+    <file relUrl="images/form-bg.png" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="images/bg_form.jpg" publishTime="03/20/2013 16:03:21" />
+    <file relUrl="StyleSheet/layout.css" publishTime="03/29/2013 18:35:52" />
+    <file relUrl="images/gradientwhite.jpg" publishTime="03/26/2013 12:19:48" />
+    <file relUrl="bin/AndroidWebApp.dll" publishTime="03/29/2013 18:37:31" />
+  </publishTarget>
+</publishData>

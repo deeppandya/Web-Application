@@ -1,0 +1,150 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Untitled Document</title>
+<link href="Css/boilerplate.css" rel="stylesheet" type="text/css">
+<link href="Css/login.css" rel="stylesheet" type="text/css">
+<!-- 
+To learn more about the conditional comments around the html tags at the top of the file:
+paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+
+Do the following if you're using your customized build of modernizr (http://www.modernizr.com/):
+* insert the link to your js here
+* remove the link below to the html5shiv
+* add the "no-js" class to the html tags at the top
+* you can also remove the link to respond.min.js if you included the MQ Polyfill in your modernizr build 
+-->
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="JS/respond.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+//function loginclick()
+//{
+//	var _check=Check();
+//	if(_check)
+//	{
+//		var email=document.getElementById('login').value;
+//		var password=document.getElementById('password').value;
+//		var params = 'UserId='+email+'&password='+password;
+//	   var xmlHttpReq = new XMLHttpRequest();
+//	   xmlHttpReq.open("POST", "http://192.168.1.110:9012/Projecttracker.asmx/checkUser", false);
+//	   xmlHttpReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+//	   alert("before");
+//	   xmlHttpReq.send(params);
+//	   alert("after");
+//	   alert(xmlHttpReq.responseText);
+//	   alert(xmlHttpReq.responseXML.childNodes[0].text);
+//	   //var jsonResponse = JSON.parse(xmlHttpReq.responseXML);
+//	   //alert(jsonResonse);
+//	   //if(xmlHttpReq.responseText==true)
+//	   //{
+//		//   alert("true");
+//	   //}
+//   }
+//}
+
+function login()
+{
+			var email=document.getElementById('login').value;
+			var password=document.getElementById('password').value;
+			document.getElementById('divspinner').style.display='';
+			var _check= Check();
+			if(_check)
+			{
+            var params = "{'UserId':'"+email+"','password':'"+password+"'}";
+            $.ajax
+              ({
+                  type: "POST",
+                  url: "default.aspx/checkUser",
+                  data: params,
+                  contentType: "application/json;charset=utf-8",
+                  dataType: "json",
+                  success: PostSubmit,
+                  error: function(err) {
+
+                  }
+              });
+      }
+}
+
+function PostSubmit(result)
+        {
+            var JsonObject = JSON.parse(result.d);
+            var CHECK = JsonObject[0].CHECK;
+            document.getElementById('divspinner').style.display='none';
+            if(CHECK=="True")
+			{
+				var email=document.getElementById('login').value;
+				sessionStorage.setItem("userid", email);
+				window.location="Profile.html";				
+			}
+			else if(CHECK=="False")
+			{
+				alert("Wrong Username/Password");
+			}
+			
+		}
+
+function Check()
+{
+	var email=document.getElementById('login').value;
+	var password=document.getElementById('password').value;
+	var checkvalue=false;
+	if(email=="")
+	{
+		alert("Please Enter user Id");
+	}
+	else if(password=="")
+	{
+		alert("Please Enter Password");
+	}
+	else
+	{
+		checkvalue=true;
+	}
+	return checkvalue;
+}
+</script>
+</head>
+<body>
+<div class="gridContainer clearfix">
+<div class="auto_scaling" style="display:none;" id="divspinner">
+        <canvas id="layer6" width="50" height="50" class="anim_6"> </canvas> <canvas id="layer8" width="50" height="50" class="anim_8"></canvas>        <canvas id="layer7" width="50" height="50" class="anim_7"></canvas> 
+</div>
+  	<div id="divlogin" class="login">
+    	<p>
+      <label for="login">Email:</label>
+      <input type="text" name="login" id="login">
+    </p>
+
+    <p>
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password">
+    </p>
+
+    <p class="login-submit">
+      <button type="submit" class="login-button" onClick="login();">Login</button>
+    </p>
+
+    <p class="forgot-password">
+    <!--<a href="#">Forgot your password?</a>-->
+    <!--<br /><br />--><a href="SignUp.html">Sign Up</a></p>
+    </div>
+</div>
+<script type="text/javascript">
+var c6=document.getElementById("layer6");var ctx6=c6.getContext("2d");  ctx6.fillStyle="#FF0000";ctx6.beginPath();ctx6.arc(25,25,24,0,Math.PI*2,true);ctx6.closePath();ctx6.fill();var c8=document.getElementById("layer8");var ctx8=c8.getContext("2d");ctx8.fillStyle = "#000"; ctx8.fillStyle="#fff";ctx8.fillRect(15,0,20,20);    var c7=document.getElementById("layer7");var ctx7=c7.getContext("2d");     ctx7.fillStyle="#fff";ctx7.beginPath();ctx7.arc(25,25,21,0,Math.PI*2,true);ctx7.closePath();ctx7.fill();ctx7.fillStyle = "#000";ctx7.font ="8pt Calibri";ctx7.fillText("Loading", 6, 28); 
+</script>
+</body>
+</html>

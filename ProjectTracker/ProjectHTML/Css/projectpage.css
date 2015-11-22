@@ -1,0 +1,219 @@
+@charset "utf-8";
+/* Simple fluid media
+   Note: Fluid media requires that you remove the media's height and width attributes from the HTML
+   http://www.alistapart.com/articles/fluid-images/ 
+*/
+img, object, embed, video {
+	max-width: 100%;
+}
+
+/* IE 6 does not support max-width so default to width 100% */
+.ie6 img {
+	width:100%;
+}
+
+/*
+	Dreamweaver Fluid Grid Properties
+	----------------------------------
+	dw-num-cols-mobile:		4;
+	dw-num-cols-tablet:		8;
+	dw-num-cols-desktop:	12;
+	dw-gutter-percentage:	25;
+	
+	Inspiration from "Responsive Web Design" by Ethan Marcotte 
+	http://www.alistapart.com/articles/responsive-web-design
+	
+	and Golden Grid System by Joni Korpi
+	http://goldengridsystem.com/
+*/
+
+.fluid {
+	clear: both;
+	margin-left: 0;
+	width: 100%;
+	float: left;
+	display: block;
+}
+
+.fluidList {
+    list-style:none;
+    list-style-image:none;
+    margin:0;
+    padding:0;        
+}
+
+body
+{
+background:#FFFFFF;	
+}
+
+/* Mobile Layout: 480px and below. */
+  
+.gridContainer {
+	margin-left: auto;
+	margin-right: auto;
+	width: 95%;
+	padding-left: 2.5%;
+	padding-right: 2.5%;
+	clear: none;
+	float: none;
+}
+#divaddbtn
+{
+	background-image:url(../Images/bg.jpg);
+	height: 35px;
+	 width: 98%;
+	  border: 1px solid black;
+	   border-radius:5px;
+	   position:fixed;
+	   margin-top:5px;
+	   margin-right:20px;
+	   alignment-adjust:middle;
+	   text-align:center;}
+
+ol{
+				counter-reset: li;
+				list-style: none;
+				*list-style: decimal;
+				font: 15px 'trebuchet MS', 'lucida sans';
+				padding: 0;
+				margin-bottom: 4em;
+				margin-top:30px;
+				text-shadow: 0 1px 0 rgba(255,255,255,.5);
+				width:80%;
+				margin-left:10%;
+			}
+
+			ol ol{
+				margin: 0 0 0 2em;
+			}
+
+.circle-list li{
+			    padding: 2.5em;
+			    border-bottom: 1px dashed #ccc;
+			}
+
+			.circle-list h2{
+			    position: relative;
+			    margin: 0;
+			}
+
+			.circle-list p{
+			    margin: 0;
+			}
+
+			.circle-list h2:before{
+			    content: counter(li);
+			    counter-increment: li;
+			    position: absolute;    
+			    z-index: -1;
+			    left: -1.3em;
+			    top: -.8em;
+			    background: #f5f5f5;
+			    height: 1.5em;
+			    width: 1.5em;
+			    border: .1em solid rgba(0,0,0,.05);
+			    text-align: center;
+			    font: italic bold 1em/1.5em Georgia, Serif;
+			    color: #ccc;
+			    -moz-border-radius: 1.5em;
+			    -webkit-border-radius: 1.5em;
+			    border-radius: 1.5em;
+			    -webkit-transition: all .2s ease-out;
+			    -moz-transition: all .2s ease-out;
+			    -ms-transition: all .2s ease-out;
+			    -o-transition: all .2s ease-out;
+			    transition: all .2s ease-out;    
+			}
+
+			.circle-list li:hover h2:before{
+			    background-color: #729fb2;
+			    border-color: rgba(0,0,0,.08);
+			    border-width: .2em;
+			    color: #444;
+			    -webkit-transform: scale(1.5);
+			    -moz-transform: scale(1.5);
+			    -ms-transform: scale(1.5);
+			    -o-transform: scale(1.5);
+			    transform: scale(1.5);
+			}
+			
+			
+			input[type="submit"]{
+cursor:pointer; /*forces the cursor to change to a hand when the button is hovered*/
+padding:5px 25px; /*add some padding to the inside of the button*/
+background:#deeef4; /*the colour of the button*/
+border:1px solid #33842a; /*required or the default border for the browser will appear*/
+/*give the button curved corners, alter the size as required*/
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px;
+/*give the button a drop shadow*/
+-webkit-box-shadow: 0 0 4px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 4px rgba(0,0,0, .75);
+box-shadow: 0 0 4px rgba(0,0,0, .75);
+/*style the text*/
+color:#000000;
+font-weight:bold;
+font-size:1.1em;
+}
+/***NOW STYLE THE BUTTON'S HOVER AND FOCUS STATES***/
+input#gobutton:hover, input#gobutton:focus{
+background-color :#729fb2; /*make the background a little darker*/
+/*reduce the drop shadow size to give a pushed button effect*/
+-webkit-box-shadow: 0 0 1px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 1px rgba(0,0,0, .75);
+box-shadow: 0 0 1px rgba(0,0,0, .75);
+}
+			
+.zeroMargin_mobile {
+    margin-left: 0;
+}
+.hide_mobile {
+    display: none;
+}
+
+/* Tablet Layout: 481px to 768px. Inherits styles from: Mobile Layout. */
+
+@media only screen and (min-width: 481px) {
+
+.gridContainer {
+	width: 97.5%;
+	padding-left: 1.25%;
+	padding-right: 1.25%;
+	clear: none;
+	float: none;
+	margin-left: auto;
+}
+#div1 {
+}
+.zeroMargin_tablet {
+    margin-left: 0;
+}
+.hide_tablet {
+    display: none;
+}
+}
+
+/* Desktop Layout: 769px to a max of 1232px.  Inherits styles from: Mobile Layout and Tablet Layout. */
+
+@media only screen and (min-width: 769px) {
+
+.gridContainer {
+	width: 98.3333%;
+	max-width: 1232px;
+	padding-left: 0.8333%;
+	padding-right: 0.8333%;
+	margin: auto;
+	clear: none;
+	float: none;
+	margin-left: auto;
+}
+
+.zeroMargin_desktop {
+    margin-left: 0;
+}
+.hide_desktop {
+    display: none;
+}
+}

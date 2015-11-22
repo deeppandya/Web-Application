@@ -1,0 +1,661 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C0764A1D-2B8D-49A5-81E5-BF0E2C223F39}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjectHTML</RootNamespace>
+    <AssemblyName>ProjectHTML</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=12.0.1100.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=12.0.1100.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="Telerik.Charting, Version=2.0.5.0, Culture=neutral, PublicKeyToken=d14f3dcc8e3e8763, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\CMS\CMSUI\CMSUI\bin\Telerik.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.Design, Version=2009.2.701.35, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\CMS\CMSUI\CMSUI\bin\Telerik.Web.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI, Version=2009.2.701.35, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\CMS\CMSUI\CMSUI\bin\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CrystalReport11.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Report.aspx.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report.aspx.designer.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ProjectService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Addproject.html" />
+    <Content Include="billing.html" />
+    <Content Include="client.html" />
+    <Content Include="clientlist.html" />
+    <Content Include="company.html" />
+    <Content Include="companylist.html" />
+    <Content Include="App_Data\crystalreportviewers12\ActiveXControls\ActiveXViewer.cab" />
+    <Content Include="App_Data\crystalreportviewers12\ActiveXControls\CRViewer.dll" />
+    <Content Include="App_Data\crystalreportviewers12\ActiveXControls\CRViewer_res_en.dll" />
+    <Content Include="App_Data\crystalreportviewers12\ActiveXControls\CSelExpt.ocx" />
+    <Content Include="App_Data\crystalreportviewers12\ActiveXControls\CSelExpt_res_en.ocx" />
+    <Content Include="App_Data\crystalreportviewers12\ActiveXControls\csprintdlg.dll" />
+    <Content Include="App_Data\crystalreportviewers12\ActiveXControls\csprintdlg_res_en.dll" />
+    <Content Include="App_Data\crystalreportviewers12\ActiveXControls\LCIDTable.xml" />
+    <Content Include="App_Data\crystalreportviewers12\ActiveXControls\PrintControl.cab" />
+    <Content Include="App_Data\crystalreportviewers12\ActiveXControls\PrintControl.dll" />
+    <Content Include="App_Data\crystalreportviewers12\ActiveXControls\PrintControl_res_en.dll" />
+    <Content Include="App_Data\crystalreportviewers12\ActiveXControls\pvlocale-1-0.dll" />
+    <Content Include="App_Data\crystalreportviewers12\ActiveXControls\sviewhlp.dll" />
+    <Content Include="App_Data\crystalreportviewers12\ActiveXControls\sviewhlp_res_en.dll" />
+    <Content Include="App_Data\crystalreportviewers12\ActiveXControls\swebrs.dll" />
+    <Content Include="App_Data\crystalreportviewers12\ActiveXControls\swebrs_res_en.dll" />
+    <Content Include="App_Data\crystalreportviewers12\ActiveXControls\xerces-c_2_7.dll" />
+    <Content Include="App_Data\crystalreportviewers12\ActiveXControls\XERCES27_LICENSE.txt" />
+    <Content Include="App_Data\crystalreportviewers12\allInOne.js" />
+    <Content Include="App_Data\crystalreportviewers12\allStrings_en.js" />
+    <Content Include="App_Data\crystalreportviewers12\crsmarttag.asp" />
+    <Content Include="App_Data\crystalreportviewers12\crystalimagehandler.asp" />
+    <Content Include="App_Data\crystalreportviewers12\crystalimagehandler.aspx" />
+    <Content Include="App_Data\crystalreportviewers12\css\cedefault.css" />
+    <Content Include="App_Data\crystalreportviewers12\css\default.css" />
+    <Content Include="App_Data\crystalreportviewers12\css\exception.css" />
+    <Content Include="App_Data\crystalreportviewers12\css\prompting.css" />
+    <Content Include="App_Data\crystalreportviewers12\html\calendar.html" />
+    <Content Include="App_Data\crystalreportviewers12\html\calendarbottom.html" />
+    <Content Include="App_Data\crystalreportviewers12\html\calendartop.html" />
+    <Content Include="App_Data\crystalreportviewers12\imagehandlerdotnetbridge.aspx" />
+    <Content Include="App_Data\crystalreportviewers12\images\buttonl.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\buttonm.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\buttonr.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortActive100.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortActive150.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortActive200.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortActive250.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortActive300.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortActive350.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortActive400.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortActive50.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortHover100.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortHover150.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortHover200.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortHover250.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortHover300.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortHover350.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortHover400.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortHover50.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortInactive100.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortInactive150.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortInactive200.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortInactive250.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortInactive300.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortInactive400.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\DownArrowSortInactive50.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortActive100.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortActive150.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortActive200.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortActive250.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortActive300.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortActive350.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortActive400.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortActive50.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortHover100.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortHover150.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortHover200.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortHover250.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortHover300.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortHover350.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortHover400.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortHover50.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortInactive100.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortInactive150.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortInactive200.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortInactive250.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortInactive300.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortInactive400.gif" />
+    <Content Include="App_Data\crystalreportviewers12\images\isort\UpArrowSortInactive50.gif" />
+    <Content Include="App_Data\crystalreportviewers12\JavaViewer\ReportViewer.jar" />
+    <Content Include="App_Data\crystalreportviewers12\js\calendar.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\calendar_param.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewerinclude.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\ArgumentNormalizer.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\bobjcallback.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\Calendar.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\common.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\crv.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\Dialogs.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\dom.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\event.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\html.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\calendar.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\delete.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\export.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\first.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\grouptree_toggle.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\last.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\logo.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\magnify.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\min.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\next.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\panel_toggle.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\param_adv.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\param_datafetching.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\param_dirty.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\param_info.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\param_panel.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\param_run.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\param_warning.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\plus.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\prev.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\print.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\refresh.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\search.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\separator.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\StackedTab.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\style.css" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\toolbar.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\images\up.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\initDhtmlLib.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\IOAdapters.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\Parameter.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\ParameterController.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\ParameterPanel.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\ParameterUI.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\PromptPage.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\ReportAlbum.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\ReportPage.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\ReportView.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\Separator.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\SharedWidgetHolder.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\StackedPanel.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\StateManager.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\strings_en.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\Toolbar.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\ToolPanel.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\Tooltip.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\Viewer.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\crviewer\ViewerListener.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\bolist.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\calendar.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\dialog.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\dom.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\empty.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\borders.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\help.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\loading.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\lov.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\min.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\plus.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\print.css" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\print_fe.css" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\prompt.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\resizepattern.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\bolist.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\button.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\buttonIcons.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\critical_icon.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\dialogelements.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\dialogframe.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\dialogframeleftright.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\dialogframetopbottom.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\dialogtitle.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\down.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\iconsep.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\information_icon.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\left.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\menus.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\node.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\progress.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\resize.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\right.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\scroll_icon.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\sep.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\sep_solid.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\style.css" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\style.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\style_fe.css" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\tabs.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\up.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\wait01.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\wait02.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_coloredline\warning_icon.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\bolist.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\button.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\buttonIcons.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\critical_icon.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\dialogelements.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\dialogframe.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\dialogframeleftright.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\dialogframetopbottom.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\dialogtitle.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\down.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\iconsep.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\information_icon.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\left.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\menus.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\node.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\progress.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\resize.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\right.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\scroll_icon.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\sep.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\sep_solid.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\style.css" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\style.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\style_fe.css" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\tabs.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\up.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\wait01.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\wait02.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_corporate\warning_icon.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\bolist.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\button.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\buttonIcons.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\critical_icon.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\dialogelements.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\dialogframe.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\dialogframeleftright.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\dialogframetopbottom.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\dialogtitle.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\down.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\iconsep.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\information_icon.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\left.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\menus.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\node.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\progress.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\resize.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\right.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\scroll_icon.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\sep.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\sep_solid.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\style.css" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\style.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\style_fe.css" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\tabs.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\up.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\wait01.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\wait02.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_default\warning_icon.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\bolist.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\button.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\buttonIcons.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\critical_icon.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\critical_icon.png" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\dialogelements.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\dialogframe.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\dialogframeleftright.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\dialogframetopbottom.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\dialogtitle.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\down.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\hgrab.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\iconsep.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\information_icon.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\left.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\menus.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\node.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\panemenu.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\panetitle.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\progress.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\resize.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\right.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\scroll_icon.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\sep.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\sep_solid.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\style.css" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\style.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\style_fe.css" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\tabs.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\up.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\vgrab.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\wait01.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\wait02.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\skin_standard\warning_icon.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\swap.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\transp.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\images\tree.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\language\en\labels.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\lov.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\menu.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\palette.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\prompttree.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\psheet.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\andorwidget.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\basicDialog.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\blockWhileWait.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\bolist.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\borderswidget.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\buttons.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\calendar.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\checktree.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\default.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\dim.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\dim_close.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\dim_o.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\dim_open.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\empty.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\eventsDialog.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\fieldswidget.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\format.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\framezone.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\grabber.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\iconlistpopupwidget.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\iconscrollmenuwidget.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\imgtabs.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\inconwidget.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\infowidget.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\lov.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\measure.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\measure_o.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\menu.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\navigation.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\palettes.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\pane.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\parent_dialog.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\progressBar.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\prompttree.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\qualif.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\scrolltabs.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\simplelist.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\skinIntl.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\tabs.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\textcombowidget.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\tooltipwidget.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\treeicons.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\treeview.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\unv_close.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\unv_o.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\unv_open.gif" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\samples\waitDialog.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\treeview.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\validator\default.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\validator\validator_res.html" />
+    <Content Include="App_Data\crystalreportviewers12\js\dhtmllib\waitdialog.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\dt_param.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\external\date.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\KeyDownEvent.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\log4javascript\log4javascript.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\log4javascript\log4javascript_stub.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\log4javascript\log4javascript_stub_uncompressed.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\log4javascript\log4javascript_uncompressed.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\log4javascript\main.css" />
+    <Content Include="App_Data\crystalreportviewers12\js\MochiKit\3rdParty.txt" />
+    <Content Include="App_Data\crystalreportviewers12\js\MochiKit\Async.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\MochiKit\Base.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\MochiKit\Color.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\MochiKit\Controls.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\MochiKit\DateTime.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\MochiKit\DOM.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\MochiKit\DragAndDrop.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\MochiKit\Format.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\MochiKit\Iter.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\MochiKit\License.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\MochiKit\Logging.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\MochiKit\LoggingPane.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\MochiKit\MochiKit.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\MochiKit\MockDOM.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\MochiKit\New.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\MochiKit\Signal.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\MochiKit\Sortable.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\MochiKit\Style.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\MochiKit\Test.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\MochiKit\Visual.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\MochiKit\__package__.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\previewerror.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\prompts.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\prompts_param.js" />
+    <Content Include="App_Data\crystalreportviewers12\js\strings_en.js" />
+    <Content Include="App_Data\crystalreportviewers12\preview.aspx" />
+    <Content Include="App_Data\crystalreportviewers12\processindicator.js" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\css\promptengine2.css" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\css\promptengine_default.css" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\html\calendar.html" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\html\calendarbottom.html" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\html\calendartop.html" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\addallfield.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\addallfield_over.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\addfield.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\addfield_over.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\back.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\back_over.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\button.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\button_left_normal.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\button_middle_normal.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\button_right_normal.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\calendar.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\cfilter.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\cfilter_over.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\dialogelements.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\dialogtitle.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\error.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\errormsg.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\filter.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\filter_over.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\forward.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\forward_over.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\info.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\infomsg.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\minus.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\next.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\next_over.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\plus.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\prev.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\prev_over.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\resize.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\transp.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\warning.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\images\warningmsg.gif" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\js\initDhtmlLib.js" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\js\promptengine_calendar.js" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\js\promptengine_calendar2.js" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\js\promptengine_prompts.js" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\js\promptengine_prompts2.js" />
+    <Content Include="App_Data\crystalreportviewers12\prompting\js\promptengine_strings_en.js" />
+    <Content Include="App_Data\crystalreportviewers12\resourcecabs\ActiveXViewer_res_en.cab" />
+    <Content Include="App_Data\crystalreportviewers12\urlreporting\activexviewer.js" />
+    <Content Include="App_Data\crystalreportviewers12\urlreporting\appletviewer.js" />
+    <Content Include="App_Data\crystalreportviewers12\urlreporting\buttonl.gif" />
+    <Content Include="App_Data\crystalreportviewers12\urlreporting\buttonm.gif" />
+    <Content Include="App_Data\crystalreportviewers12\urlreporting\buttonr.gif" />
+    <Content Include="Css\addproject.css" />
+    <Content Include="Css\billing.css" />
+    <Content Include="Css\boilerplate.css" />
+    <Content Include="Css\client.css" />
+    <Content Include="Css\clientlist.css" />
+    <Content Include="Css\company.css" />
+    <Content Include="Css\companylist.css" />
+    <Content Include="Css\editproject.css" />
+    <Content Include="Css\login.css" />
+    <Content Include="Css\profile.css" />
+    <Content Include="Css\projectpage.css" />
+    <Content Include="Css\Report.css" />
+    <Content Include="Css\search.css" />
+    <Content Include="Css\signup.css" />
+    <Content Include="EditPage.html" />
+    <Content Include="Images\arrow.png" />
+    <Content Include="Images\bg.jpg" />
+    <Content Include="Images\hover.gif" />
+    <Content Include="Images\nav.png" />
+    <Content Include="Images\Radiqal.png" />
+    <Content Include="Images\radiqal_logo.bmp" />
+    <Content Include="Images\rad_logo.png" />
+    <Content Include="Images\seperator.gif" />
+    <Content Include="JS\jquery.js" />
+    <Content Include="JS\jspdf.js" />
+    <Content Include="JS\respond.min.js" />
+    <Content Include="Login.html" />
+    <Content Include="obj\Debug\TempPE\Web References.ProjectService.Reference.cs.dll" />
+    <Content Include="profile.html" />
+    <Content Include="ProjectHTML.Publish.xml" />
+    <Content Include="projectpage.html" />
+    <Content Include="Report.aspx" />
+    <Content Include="Search.html" />
+    <Content Include="SignUp.html" />
+    <None Include="App_Data\crystalreportviewers12\ActiveXControls\crviewer.dep" />
+    <None Include="App_Data\crystalreportviewers12\crsmarttag.jsp" />
+    <None Include="App_Data\crystalreportviewers12\errorpage.jsp" />
+    <None Include="App_Data\crystalreportviewers12\preview.jsp" />
+    <None Include="App_Data\crystalreportviewers12\viewrptlogon.jsp" />
+    <Content Include="App_Data\crystalreportviewers12\Web11111.config" />
+    <Content Include="App_Data\crystalreportviewers12\Web12.config" />
+    <None Include="Web References\ProjectService\Projecttracker.disco" />
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ProjectService\Projecttracker.wsdl" />
+    <None Include="Web References\ProjectService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport11.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3924545A-F8E2-475A-B1A4-05175BC41E50}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://192.168.1.104:9018/">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ProjectService\</RelPath>
+      <UpdateFromURL>http://192.168.1.104:9018/</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ProjectHTML_ProjectService_Projecttracker</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63639</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

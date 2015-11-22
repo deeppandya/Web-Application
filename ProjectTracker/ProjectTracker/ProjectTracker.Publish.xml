@@ -1,0 +1,60 @@
+<publishData>
+  <publishTarget publishUrl="C:\Projects\Working\Publish\ProjectTracker\">
+    <file relUrl="bin/log4net.dll" publishTime="05/20/2013 23:48:31" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Data.pdb" publishTime="07/22/2013 10:20:53" />
+    <file relUrl="bin/Microsoft.Practices.ObjectBuilder.dll" publishTime="07/22/2013 10:20:46" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll" publishTime="07/22/2013 10:20:53" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Logging.xml" publishTime="07/22/2013 10:20:57" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Logging.pdb" publishTime="07/22/2013 10:20:57" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Common.pdb" publishTime="07/22/2013 10:20:46" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll" publishTime="07/22/2013 10:20:46" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Common.xml" publishTime="07/22/2013 10:20:46" />
+    <file relUrl="Projecttracker.asmx" publishTime="10/03/2013 10:59:21" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Data.xml" publishTime="07/22/2013 10:20:53" />
+    <file relUrl="bin/ProjectTracker.pdb" publishTime="10/22/2013 17:37:00" />
+    <file relUrl="bin/log4net.pdb" publishTime="05/20/2013 23:48:32" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Logging.dll" publishTime="07/22/2013 10:20:56" />
+    <file relUrl="web.config" publishTime="10/10/2013 14:59:22" />
+    <file relUrl="bin/log4net.xml" publishTime="05/20/2013 23:48:32" />
+    <file relUrl="bin/ProjectTracker.dll" publishTime="10/22/2013 17:37:00" />
+  </publishTarget>
+  <publishTarget publishUrl="C:\Users\ab\Desktop\PublishService\WSService\">
+    <file relUrl="bin/log4net.dll" publishTime="10/29/2012 15:20:32" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Data.pdb" publishTime="07/22/2013 10:20:53" />
+    <file relUrl="bin/Microsoft.Practices.ObjectBuilder.dll" publishTime="07/22/2013 10:20:46" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll" publishTime="07/22/2013 10:20:53" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Logging.xml" publishTime="07/22/2013 10:20:57" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Logging.pdb" publishTime="07/22/2013 10:20:57" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Common.pdb" publishTime="07/22/2013 10:20:46" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll" publishTime="07/22/2013 10:20:46" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Common.xml" publishTime="07/22/2013 10:20:46" />
+    <file relUrl="Projecttracker.asmx" publishTime="10/03/2013 10:59:21" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Data.xml" publishTime="07/22/2013 10:20:53" />
+    <file relUrl="bin/ProjectTracker.pdb" publishTime="10/09/2013 17:40:14" />
+    <file relUrl="bin/log4net.pdb" publishTime="10/29/2012 15:20:32" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Logging.dll" publishTime="07/22/2013 10:20:56" />
+    <file relUrl="web.config" publishTime="10/09/2013 13:33:08" />
+    <file relUrl="bin/log4net.xml" publishTime="10/29/2012 15:20:32" />
+    <file relUrl="bin/ProjectTracker.dll" publishTime="10/09/2013 17:40:14" />
+  </publishTarget>
+  <publishTarget publishUrl="C:\Users\ab\Desktop\PublishService\" />
+  <publishTarget publishUrl="C:\Users\ab\Desktop\PublishService\Service\">
+    <file relUrl="bin/log4net.dll" publishTime="10/29/2012 15:20:32" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Data.pdb" publishTime="07/22/2013 10:20:53" />
+    <file relUrl="bin/Microsoft.Practices.ObjectBuilder.dll" publishTime="07/22/2013 10:20:46" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll" publishTime="07/22/2013 10:20:53" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Logging.xml" publishTime="07/22/2013 10:20:57" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Logging.pdb" publishTime="07/22/2013 10:20:57" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Common.pdb" publishTime="07/22/2013 10:20:46" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll" publishTime="07/22/2013 10:20:46" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Common.xml" publishTime="07/22/2013 10:20:46" />
+    <file relUrl="Projecttracker.asmx" publishTime="10/03/2013 10:59:21" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Data.xml" publishTime="07/22/2013 10:20:53" />
+    <file relUrl="bin/ProjectTracker.pdb" publishTime="10/05/2013 16:23:00" />
+    <file relUrl="bin/log4net.pdb" publishTime="10/29/2012 15:20:32" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Logging.dll" publishTime="07/22/2013 10:20:56" />
+    <file relUrl="Web.config" publishTime="10/05/2013 16:23:48" />
+    <file relUrl="bin/log4net.xml" publishTime="10/29/2012 15:20:32" />
+    <file relUrl="bin/ProjectTracker.dll" publishTime="10/05/2013 16:23:00" />
+  </publishTarget>
+</publishData>

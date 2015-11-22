@@ -1,0 +1,907 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="registerUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="regKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phoneNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="service_provider" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="question" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="answer" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="registerUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="registerUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateUserDevice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="regKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oldUserId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateUserDeviceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateUserDeviceResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="checkUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDeviceId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDeviceIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDeviceIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRegistrationKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRegistrationKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRegistrationKeyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkDeviceExists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkDeviceExistsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="checkDeviceExistsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateRegKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="regKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateRegKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateRegKeyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertLocation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="latitude" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="longitude" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertLocationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertLocationResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLocation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLocationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLocationResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertImage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="byteStream" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="toAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertImageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertImageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sendMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="byteArray" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ToUserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mailText" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isAttachment" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sendMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sendMailResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getImageByteArray">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getImageByteArrayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getImageByteArrayResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteImage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteImageResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getUserInformation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserInformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUserInformationResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkUserExists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkUserExistsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="checkUserExistsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isUserActive">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isUserActiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isUserActiveResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserLoginInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserLoginInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUserLoginInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkRegKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="regKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkRegKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="checkRegKeyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sendLocationMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="byteArray" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NetLat" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NetLong" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="toAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sendLocationMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sendLocationMailResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="registerUserSoapIn">
+    <wsdl:part name="parameters" element="tns:registerUser" />
+  </wsdl:message>
+  <wsdl:message name="registerUserSoapOut">
+    <wsdl:part name="parameters" element="tns:registerUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateUserDeviceSoapIn">
+    <wsdl:part name="parameters" element="tns:updateUserDevice" />
+  </wsdl:message>
+  <wsdl:message name="updateUserDeviceSoapOut">
+    <wsdl:part name="parameters" element="tns:updateUserDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="checkUserSoapIn">
+    <wsdl:part name="parameters" element="tns:checkUser" />
+  </wsdl:message>
+  <wsdl:message name="checkUserSoapOut">
+    <wsdl:part name="parameters" element="tns:checkUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDeviceIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDeviceId" />
+  </wsdl:message>
+  <wsdl:message name="GetDeviceIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDeviceIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrationKeySoapIn">
+    <wsdl:part name="parameters" element="tns:GetRegistrationKey" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrationKeySoapOut">
+    <wsdl:part name="parameters" element="tns:GetRegistrationKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserId" />
+  </wsdl:message>
+  <wsdl:message name="GetUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="checkDeviceExistsSoapIn">
+    <wsdl:part name="parameters" element="tns:checkDeviceExists" />
+  </wsdl:message>
+  <wsdl:message name="checkDeviceExistsSoapOut">
+    <wsdl:part name="parameters" element="tns:checkDeviceExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateRegKeySoapIn">
+    <wsdl:part name="parameters" element="tns:updateRegKey" />
+  </wsdl:message>
+  <wsdl:message name="updateRegKeySoapOut">
+    <wsdl:part name="parameters" element="tns:updateRegKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertLocationSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertLocation" />
+  </wsdl:message>
+  <wsdl:message name="InsertLocationSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLocation" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertImageSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertImage" />
+  </wsdl:message>
+  <wsdl:message name="InsertImageSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="sendMailSoapIn">
+    <wsdl:part name="parameters" element="tns:sendMail" />
+  </wsdl:message>
+  <wsdl:message name="sendMailSoapOut">
+    <wsdl:part name="parameters" element="tns:sendMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="getImageByteArraySoapIn">
+    <wsdl:part name="parameters" element="tns:getImageByteArray" />
+  </wsdl:message>
+  <wsdl:message name="getImageByteArraySoapOut">
+    <wsdl:part name="parameters" element="tns:getImageByteArrayResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteImageSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteImage" />
+  </wsdl:message>
+  <wsdl:message name="deleteImageSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserInformationSoapIn">
+    <wsdl:part name="parameters" element="tns:getUserInformation" />
+  </wsdl:message>
+  <wsdl:message name="getUserInformationSoapOut">
+    <wsdl:part name="parameters" element="tns:getUserInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="checkUserExistsSoapIn">
+    <wsdl:part name="parameters" element="tns:checkUserExists" />
+  </wsdl:message>
+  <wsdl:message name="checkUserExistsSoapOut">
+    <wsdl:part name="parameters" element="tns:checkUserExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="isUserActiveSoapIn">
+    <wsdl:part name="parameters" element="tns:isUserActive" />
+  </wsdl:message>
+  <wsdl:message name="isUserActiveSoapOut">
+    <wsdl:part name="parameters" element="tns:isUserActiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserLoginInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:getUserLoginInfo" />
+  </wsdl:message>
+  <wsdl:message name="getUserLoginInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:getUserLoginInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="checkRegKeySoapIn">
+    <wsdl:part name="parameters" element="tns:checkRegKey" />
+  </wsdl:message>
+  <wsdl:message name="checkRegKeySoapOut">
+    <wsdl:part name="parameters" element="tns:checkRegKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="sendLocationMailSoapIn">
+    <wsdl:part name="parameters" element="tns:sendLocationMail" />
+  </wsdl:message>
+  <wsdl:message name="sendLocationMailSoapOut">
+    <wsdl:part name="parameters" element="tns:sendLocationMailResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AndroidSecurityWSSoap">
+    <wsdl:operation name="registerUser">
+      <wsdl:input message="tns:registerUserSoapIn" />
+      <wsdl:output message="tns:registerUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateUserDevice">
+      <wsdl:input message="tns:updateUserDeviceSoapIn" />
+      <wsdl:output message="tns:updateUserDeviceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="checkUser">
+      <wsdl:input message="tns:checkUserSoapIn" />
+      <wsdl:output message="tns:checkUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceId">
+      <wsdl:input message="tns:GetDeviceIdSoapIn" />
+      <wsdl:output message="tns:GetDeviceIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegistrationKey">
+      <wsdl:input message="tns:GetRegistrationKeySoapIn" />
+      <wsdl:output message="tns:GetRegistrationKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserId">
+      <wsdl:input message="tns:GetUserIdSoapIn" />
+      <wsdl:output message="tns:GetUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="checkDeviceExists">
+      <wsdl:input message="tns:checkDeviceExistsSoapIn" />
+      <wsdl:output message="tns:checkDeviceExistsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRegKey">
+      <wsdl:input message="tns:updateRegKeySoapIn" />
+      <wsdl:output message="tns:updateRegKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertLocation">
+      <wsdl:input message="tns:InsertLocationSoapIn" />
+      <wsdl:output message="tns:InsertLocationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocation">
+      <wsdl:input message="tns:GetLocationSoapIn" />
+      <wsdl:output message="tns:GetLocationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertImage">
+      <wsdl:input message="tns:InsertImageSoapIn" />
+      <wsdl:output message="tns:InsertImageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sendMail">
+      <wsdl:input message="tns:sendMailSoapIn" />
+      <wsdl:output message="tns:sendMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getImageByteArray">
+      <wsdl:input message="tns:getImageByteArraySoapIn" />
+      <wsdl:output message="tns:getImageByteArraySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteImage">
+      <wsdl:input message="tns:deleteImageSoapIn" />
+      <wsdl:output message="tns:deleteImageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserInformation">
+      <wsdl:input message="tns:getUserInformationSoapIn" />
+      <wsdl:output message="tns:getUserInformationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="checkUserExists">
+      <wsdl:input message="tns:checkUserExistsSoapIn" />
+      <wsdl:output message="tns:checkUserExistsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isUserActive">
+      <wsdl:input message="tns:isUserActiveSoapIn" />
+      <wsdl:output message="tns:isUserActiveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserLoginInfo">
+      <wsdl:input message="tns:getUserLoginInfoSoapIn" />
+      <wsdl:output message="tns:getUserLoginInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="checkRegKey">
+      <wsdl:input message="tns:checkRegKeySoapIn" />
+      <wsdl:output message="tns:checkRegKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sendLocationMail">
+      <wsdl:input message="tns:sendLocationMailSoapIn" />
+      <wsdl:output message="tns:sendLocationMailSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AndroidSecurityWSSoap" type="tns:AndroidSecurityWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="registerUser">
+      <soap:operation soapAction="http://tempuri.org/registerUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUserDevice">
+      <soap:operation soapAction="http://tempuri.org/updateUserDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkUser">
+      <soap:operation soapAction="http://tempuri.org/checkUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceId">
+      <soap:operation soapAction="http://tempuri.org/GetDeviceId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegistrationKey">
+      <soap:operation soapAction="http://tempuri.org/GetRegistrationKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserId">
+      <soap:operation soapAction="http://tempuri.org/GetUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkDeviceExists">
+      <soap:operation soapAction="http://tempuri.org/checkDeviceExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRegKey">
+      <soap:operation soapAction="http://tempuri.org/updateRegKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertLocation">
+      <soap:operation soapAction="http://tempuri.org/InsertLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocation">
+      <soap:operation soapAction="http://tempuri.org/GetLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertImage">
+      <soap:operation soapAction="http://tempuri.org/InsertImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendMail">
+      <soap:operation soapAction="http://tempuri.org/sendMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImageByteArray">
+      <soap:operation soapAction="http://tempuri.org/getImageByteArray" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteImage">
+      <soap:operation soapAction="http://tempuri.org/deleteImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserInformation">
+      <soap:operation soapAction="http://tempuri.org/getUserInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkUserExists">
+      <soap:operation soapAction="http://tempuri.org/checkUserExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isUserActive">
+      <soap:operation soapAction="http://tempuri.org/isUserActive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserLoginInfo">
+      <soap:operation soapAction="http://tempuri.org/getUserLoginInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkRegKey">
+      <soap:operation soapAction="http://tempuri.org/checkRegKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendLocationMail">
+      <soap:operation soapAction="http://tempuri.org/sendLocationMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AndroidSecurityWSSoap12" type="tns:AndroidSecurityWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="registerUser">
+      <soap12:operation soapAction="http://tempuri.org/registerUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUserDevice">
+      <soap12:operation soapAction="http://tempuri.org/updateUserDevice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkUser">
+      <soap12:operation soapAction="http://tempuri.org/checkUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceId">
+      <soap12:operation soapAction="http://tempuri.org/GetDeviceId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegistrationKey">
+      <soap12:operation soapAction="http://tempuri.org/GetRegistrationKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserId">
+      <soap12:operation soapAction="http://tempuri.org/GetUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkDeviceExists">
+      <soap12:operation soapAction="http://tempuri.org/checkDeviceExists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRegKey">
+      <soap12:operation soapAction="http://tempuri.org/updateRegKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertLocation">
+      <soap12:operation soapAction="http://tempuri.org/InsertLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocation">
+      <soap12:operation soapAction="http://tempuri.org/GetLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertImage">
+      <soap12:operation soapAction="http://tempuri.org/InsertImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendMail">
+      <soap12:operation soapAction="http://tempuri.org/sendMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImageByteArray">
+      <soap12:operation soapAction="http://tempuri.org/getImageByteArray" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteImage">
+      <soap12:operation soapAction="http://tempuri.org/deleteImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserInformation">
+      <soap12:operation soapAction="http://tempuri.org/getUserInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkUserExists">
+      <soap12:operation soapAction="http://tempuri.org/checkUserExists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isUserActive">
+      <soap12:operation soapAction="http://tempuri.org/isUserActive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserLoginInfo">
+      <soap12:operation soapAction="http://tempuri.org/getUserLoginInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkRegKey">
+      <soap12:operation soapAction="http://tempuri.org/checkRegKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendLocationMail">
+      <soap12:operation soapAction="http://tempuri.org/sendLocationMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AndroidSecurityWS">
+    <wsdl:port name="AndroidSecurityWSSoap" binding="tns:AndroidSecurityWSSoap">
+      <soap:address location="http://60.254.50.157:9012/AndroidSecurity.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AndroidSecurityWSSoap12" binding="tns:AndroidSecurityWSSoap12">
+      <soap12:address location="http://60.254.50.157:9012/AndroidSecurity.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

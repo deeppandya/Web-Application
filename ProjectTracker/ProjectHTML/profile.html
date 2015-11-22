@@ -1,0 +1,163 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Untitled Document</title>
+<link href="Css/boilerplate.css" rel="stylesheet" type="text/css">
+<link href="Css/profile.css" rel="stylesheet" type="text/css">
+<!-- 
+To learn more about the conditional comments around the html tags at the top of the file:
+paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+
+Do the following if you're using your customized build of modernizr (http://www.modernizr.com/):
+* insert the link to your js here
+* remove the link below to the html5shiv
+* add the "no-js" class to the html tags at the top
+* you can also remove the link to respond.min.js if you included the MQ Polyfill in your modernizr build 
+-->
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="JS/respond.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+function clicksearch()
+{
+	//alert("hello");
+	//window.frames['contentframe'].document.location.href="Search.html";
+	var user_id=document.getElementById('txtsearchuser').value;
+	var fname=document.getElementById('txtsearchfname').value;
+	var lname=document.getElementById('txtsearchlname').value;
+	var bug_id=document.getElementById('txtsearchbugid').value;
+	document.getElementById('contentframe').src="Search.html?USER_ID="+user_id+"&FNAME="+fname+"&LNAME="+lname+"&BUGID="+bug_id;
+	document.getElementById('divshowproject').style.visibility="visible";
+ }
+ 
+// function PostSearch(result)
+//{
+//	//var JsonObject = JSON.parse(result.d);
+//	document.getElementById('contentframe').src="Search.html?jsonstring="+result;
+//	document.getElementById('divshowproject').style.visibility="visible";
+//}
+function clickshowprojects()
+{
+	//alert("hello");
+	//window.frames['contentframe'].document.location.href="Search.html";
+	document.getElementById('contentframe').src="projectpage.html";
+	document.getElementById('divshowproject').style.visibility="hidden";
+}
+function signoutclick()
+{
+  sessionStorage.clear();
+  window.location="Login.html";
+}
+function addcompany()
+{
+	document.getElementById('contentframe').src="company.html";
+	document.getElementById('divshowproject').style.visibility="visible";	
+}
+function addclient()
+{
+	document.getElementById('contentframe').src="client.html";
+	document.getElementById('divshowproject').style.visibility="visible";		
+}
+function addbill()
+{
+	document.getElementById('contentframe').src="billing.html";
+	document.getElementById('divshowproject').style.visibility="visible";		
+}
+
+function OpenReportPage()
+{
+    document.getElementById('contentframe').src="Report.aspx";
+	  document.getElementById('divshowproject').style.visibility="visible";
+}
+</script>
+</head>
+<body>
+<div class="gridContainer clearfix">
+	<div id="divheader">
+    	<div id="divlabel">
+        	<p class="header-label">Project Tracker</p>
+        </div>
+    </div>
+    <div id="divcontent">
+    	<div id="divsidebar">
+        	<div id="divuserinfo" class="contact">
+                <fieldset class="contact-inner">
+                    <table width="100%">
+                      <tr>
+                        <td align="left" colspan="2"><p class="contact-input">
+                            <input type="text" id="txtuser" name="name" disabled="true">
+                          </p></td>
+                      </tr>
+                      <tr>
+                         <td align="center"><p class="contact-submit" >
+                            <input type="submit" value="Report" id="btnReport" onclick="OpenReportPage();">
+                          </p></td>
+                        <td align="center"><p class="contact-submit" >
+                            <input type="submit" value="Sign Out" id="btnsignout" onclick="signoutclick();">
+                          </p></td>
+                      </tr>
+                    </table>
+                </fieldset>
+			</div>
+            <div id="divsearch" class="contact">
+                <fieldset class="contact-inner">
+                <p class="contact-label">SEARCH FORM</p>
+                <p class="contact-input">
+                  <input type="text" id="txtsearchuser" placeholder="USER ID…" autofocus>
+                </p>
+                <p class="contact-input">
+                  <input type="text" id="txtsearchfname" placeholder="FIRST NAME…">
+                </p>
+                <p class="contact-input">
+                  <input type="text" id="txtsearchlname" placeholder="LAST NAME…">
+                </p>
+                  <p class="contact-input">
+                    <input type="text" id="txtsearchbugid" placeholder="BUG ID…">      </p>
+    
+                  <p class="contact-submit">
+                    <input type="submit" value="Search" onClick="clicksearch();">
+                  </p>
+                </fieldset>
+			</div>
+            <div id="divshowproject" class="contact">
+                <fieldset class="contact-inner">    
+                  <p class="contact-submit">
+                    <input type="submit" value="Show Bug Details" onClick="clickshowprojects();" style="width:100%;font-size:18px;">
+                  </p>
+                </fieldset>
+			</div>
+        </div>
+        <div id="divdispaly">
+        <table width="100%" cellspacing="3" cellpadding="3">
+  <tr>
+    <td width="33%"><p class="contact-submit" style="text-align:center;">
+                    <input type="submit" value="ADD COMPANY" onClick="addcompany();">
+                  </p></td>
+    <td width="34%"><p class="contact-submit" style="text-align:center;">
+                    <input type="submit" value="ADD CLIENT" onClick="addclient();">
+                  </p></td>
+    <td width="33%"><p class="contact-submit" style="text-align:center;">
+                    <input type="submit" value="ADD BILLING DETAILS" onClick="addbill();">
+                  </p></td>
+  </tr>
+</table>
+
+            	<iframe id="contentframe" height="545px" width="98%" align="middle" src="projectpage.html" style="border-radius:5px;"></iframe>
+        </div>
+    </div>	
+</div>
+<script type="text/javascript">
+var userid=sessionStorage.userid;
+document.getElementById('txtuser').placeholder=userid;
+</script>
+</body>
+</html>

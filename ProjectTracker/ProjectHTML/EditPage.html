@@ -1,0 +1,323 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Untitled Document</title>
+<link href="Css/boilerplate.css" rel="stylesheet" type="text/css">
+<link href="Css/editproject.css" rel="stylesheet" type="text/css">
+<!-- 
+To learn more about the conditional comments around the html tags at the top of the file:
+paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+
+Do the following if you're using your customized build of modernizr (http://www.modernizr.com/):
+* insert the link to your js here
+* remove the link below to the html5shiv
+* add the "no-js" class to the html tags at the top
+* you can also remove the link to respond.min.js if you included the MQ Polyfill in your modernizr build 
+-->
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="JS/respond.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">        
+function cancelclick()
+{
+  window.location="projectpage.html";
+}
+function updateclick()
+{
+var _check=Check();
+	if(_check)
+	{
+	var projectname=document.getElementById('txtprojectname').value;
+	var bugid=document.getElementById('txtbugid').value;
+	var starttime=document.getElementById('txtstartdate').value+' '+document.getElementById('txtstarttime').value;
+	var endtime=document.getElementById('txtenddate').value+' '+document.getElementById('txtendtime').value;
+	var desc=document.getElementById('txtdesc').value;
+	var action=document.getElementById('txtactiontaken').value;
+	var contact=document.getElementById('txtcontactperson').value;
+	var ptype=document.getElementById('select');
+	ptype=ptype.options[ptype.selectedIndex].value;
+	var params = "{'ProjectName':'"+projectname+"','Bugid':'"+bugid+"','Project_type_id':'"+ptype+"','bugdesc':'"+desc+"','start_st':'"+starttime+"','end_dt':'"+endtime+"','action_taken':'"+action+"' ,'contact_person':'"+contact+"'}";
+        $.ajax
+              ({
+                  type: "POST",
+                  url: "default.aspx/UpdateProject",
+                  data: params,
+                  contentType: "application/json;charset=utf-8",
+                  dataType: "json",
+                  success: PostUpdate,
+                  error: function(err) {
+
+                  }
+              });
+  }
+}
+function PostUpdate(result)
+{
+	   var JsonObject = JSON.parse(result.d);
+            var UPDATE = JsonObject[0].UPDATE;
+            if(UPDATE=="True")
+			{
+				alert("Project successfully edited")
+				window.location="projectpage.html";				
+			}
+			else if(UPDATE=="False")
+			{
+				alert("Project is not edited");
+			}
+}
+
+function Check()
+{
+	var projectname=document.getElementById('txtprojectname').value;
+	var bugid=document.getElementById('txtbugid').value;
+	var startdate=document.getElementById('txtstartdate').value;
+	var sdate=new Date(startdate);
+	var starttime=document.getElementById('txtstarttime').value;
+	var enddate=document.getElementById('txtenddate').value;
+	var edate=new Date(enddate);
+	var endtime=document.getElementById('txtendtime').value;
+	var desc=document.getElementById('txtdesc').value;
+	var action=document.getElementById('txtactiontaken').value;
+	var ptype=document.getElementById('select');
+	ptype=ptype.options[ptype.selectedIndex].value;
+	var datediff=sdate-edate;
+	var currentdate=new Date();
+	var sdiff=sdate-currentdate;
+	var ediff=edate-currentdate;
+	var checkvalue=false;
+	if(projectname=="")
+	{
+		alert("Please Enter Project Name");
+	}
+	else if(bugid=="")
+	{
+		alert("Please Enter BugID");
+	}
+	else if(startdate=="")
+	{
+	  alert("Please Enter Start Date");
+	}
+	else if(starttime=="")
+	{
+		alert("Please Enter Start Time");
+	}
+	else if(desc=="")
+	{
+		alert("Please Enter Description");
+	}
+	else if(action=="")
+	{
+		alert("Please Enter Actions");
+	}
+	else if(ptype=="default")
+	{
+	  alert("Please Select Project Type"); 
+	}
+	else if(datediff>0)
+	{
+	  alert("Please Enter New EndDate Which Is > Start Date");
+	}
+	else if(sdiff>0)
+	{
+	  alert("Please Enter New Start Date Which Is <= Current Datetime");
+	}
+	else if(ediff>0)
+	{
+	  alert("Please Enter New End Date Which Is <= Current Date");
+	}
+	else
+	{
+		checkvalue=true;
+	}
+	return checkvalue;
+}
+
+function populatedropdown()
+{
+  $.ajax
+              ({
+                  type: "POST",
+                  url: "default.aspx/GetProject_Type_Id",
+                  contentType: "application/json;charset=utf-8",
+                  dataType: "json",
+                  success: CreateDropdown,
+                  error: function(err) {
+
+                  }
+              });
+}
+function CreateDropdown(result)
+{
+  var JsonObject = JSON.parse(result.d);
+  //alert(JsonObject.length);
+  //document.write('<option value="" selected>CHOOSE PROJECT TYPE ...</option>');
+/*     for ( var _object in JsonObject )          
+    {
+    document.write('<option value="'+JsonObject[_object].PROJECT_TYPE_ID+'">'+JsonObject[_object].DESCRIPTION+'</option>');
+    }*/
+    var drop=document.getElementById("select");
+   drop.innerHTML='<option value="">CHOOSE PROJECT TYPE ...</option>';
+    for(var i=0;i<JsonObject.length;i++)
+    {
+    //alert(JsonObject[i].PROJECT_TYPE_ID);
+      if(Project_type_id==JsonObject[i].PROJECT_TYPE_ID)
+      {
+        drop.innerHTML+='<option value="'+JsonObject[i].PROJECT_TYPE_ID+'" selected>'+JsonObject[i].DESCRIPTION+'</option>';
+      }
+      else
+      {
+        drop.innerHTML+='<option value="'+JsonObject[i].PROJECT_TYPE_ID+'">'+JsonObject[i].DESCRIPTION+'</option>';
+      }
+    }
+}
+</script>
+</head>
+<body>
+<div class="gridContainer clearfix">
+  <div id="diveditproject" class="contact">
+                <fieldset class="contact-inner">
+                <p class="contact-label" style="font-size:24px;">EDIT BUG DETAILS</p>
+                <p class="contact-input">
+                  <input type="text" placeholder="COMPANY NAME ..." autofocus id="txtcompanyname">
+                </p>
+                <p class="contact-input">
+                  <input type="text" placeholder="CLIENT NAME ..." autofocus id="txtclientname">
+                </p>
+                <p class="contact-input">
+                  <input type="text" placeholder="BUG ID ..." id="txtbugid" disabled="true">
+                </p>
+                    <!--<input type="datetime-local" placeholder="START TIME ..." id="txtstarttime">--> 
+                    <table>
+                    <tr><td><p class="contact-label">START DATETIME : </p></td><td><p class="contact-input"><input type="date" id="txtstartdate"></p></td><td> <p class="contact-input"><input type="time" id="txtstarttime"> </p></td></tr>
+                    </table> 
+                    <table>
+                    <tr><td><p class="contact-label">END DATETIME : </p></td><td><p class="contact-input"><input type="date" id="txtenddate"></p></td><td> <p class="contact-input"><input type="time" id="txtendtime"></p></td></tr>
+                    </table>
+                    
+                    <p class="contact-input">
+        <label for="select" class="select">
+          <select id="select">
+            <!--<script type="text/javascript">
+              populatedropdown();
+              //CreateDropdown();
+            </script>-->
+          </select>
+        </label>
+      </p>
+                    
+                    <p class="contact-input">
+        <textarea placeholder="DESCRIPTION ..." id="txtdesc"></textarea>
+      </p>
+    <p class="contact-input">
+                  <input type="text" placeholder="Action Taken ..." id="txtactiontaken">
+                </p>
+                <p class="contact-input">
+                  <input type="text" placeholder="Contact Person" id="txtcontactperson">
+                </p>
+                  <p class="contact-submit">
+                    <input type="submit" value="UPDATE PROJECT" onClick="updateclick();">
+                    <input type="submit" value="CANCEL" onClick="cancelclick();">
+                  </p>
+                  
+                </fieldset>
+			</div>
+</div>
+<script type="text/javascript">
+var query = window.location.search.substring(1);
+var str=query.split("=");
+var bid=str[1];
+var Project_type_id;
+var JsonObject;
+//document.getElementById('txtbugid').placeholder=bid;
+var params = "{'Bugid':'"+bid+"'}";
+$.ajax
+              ({
+                  type: "POST",
+                  url: "default.aspx/GetProjectDetail",
+                  data: params,
+                  contentType: "application/json;charset=utf-8",
+                  dataType: "json",
+                  success: setObject,
+                  error: function(err) {
+
+                  }
+              });
+function setObject(result)
+{
+  JsonObject = JSON.parse(result.d);
+  Project_type_id=JsonObject[0].PROJECT_TYPE_ID;
+  PostSubmit();
+}      
+
+function PostSubmit()
+ {
+     
+     //alert(document.getElementById('txtactiontaken'));
+	 document.getElementById('txtcompanyname').value=JsonObject[0].NAME;
+	 document.getElementById('txtclientname').value=JsonObject[0].CLIENT_NAME;
+	 document.getElementById('txtbugid').value=JsonObject[0].BUG_ID;
+	 var currentdate=new Date();
+	 var st=new Date(JsonObject[0].START);
+	 var Sday = st.getDate();
+	 //alert(st.getTimezoneOffset());
+	 //alert(time);
+    var Smonth = st.getMonth() + 1;
+    var Syear = st.getFullYear();
+
+    if (Smonth < 10) Smonth = "0" + Smonth;
+    if (Sday < 10) Sday = "0" + Sday;
+
+    var startdate = Syear + "-" + Smonth + "-" + Sday;
+    
+   var Shour=st.getHours();
+	 var Smin=st.getMinutes();
+	 
+	 if (Shour < 10) Shour = "0" + Shour;
+    if (Smin < 10) Smin = "0" + Smin;
+    
+	 document.getElementById('txtstartdate').value=startdate;
+	 document.getElementById('txtstarttime').value=Shour+':'+Smin;
+
+
+	 
+	 var dt=new Date(JsonObject[0].END);
+	 var Eday = dt.getDate();
+	 //alert(st.getTimezoneOffset());
+	 //alert(time);
+    var Emonth = dt.getMonth() + 1;
+    var Eyear = dt.getFullYear();
+
+    if (Emonth < 10) Emonth = "0" + Emonth;
+    if (Eday < 10) Eday = "0" + Eday;
+
+    var enddate = Eyear + "-" + Emonth + "-" + Eday;
+    
+   var Ehour=dt.getHours();
+	 var Emin=dt.getMinutes();
+	 
+	 if (Ehour < 10) Ehour = "0" + Ehour;
+    if (Emin < 10) Emin = "0" + Emin;
+   document.getElementById('txtenddate').value=enddate;
+	 document.getElementById('txtendtime').value=Ehour+':'+Emin;
+	 //var et=new Date(JsonObject[0].END);
+	 //alert(et);
+	 //document.getElementById('txtstarttime').value=JsonObject[0].START;
+	 //document.getElementById('txtendtime').value=JsonObject[0].END;
+	 //document.getElementById('txtstarttime').min="10/09/2013 10:22 AM";
+	 document.getElementById('txtdesc').value=JsonObject[0].BUG_DESC;
+	 document.getElementById('txtactiontaken').value=JsonObject[0].ACTION_TAKEN;
+	 document.getElementById('txtcontactperson').value=JsonObject[0].CONTACT_PERSON;
+	 populatedropdown();
+ } 
+</script>
+</body>
+</html>

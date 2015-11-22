@@ -1,0 +1,146 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Untitled Document</title>
+<link href="Css/boilerplate.css" rel="stylesheet" type="text/css">
+<link href="Css/clientlist.css" rel="stylesheet" type="text/css">
+<link href="Css/client.css" rel="stylesheet" type="text/css">
+<!-- 
+To learn more about the conditional comments around the html tags at the top of the file:
+paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+
+Do the following if you're using your customized build of modernizr (http://www.modernizr.com/):
+* insert the link to your js here
+* remove the link below to the html5shiv
+* add the "no-js" class to the html tags at the top
+* you can also remove the link to respond.min.js if you included the MQ Polyfill in your modernizr build 
+-->
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="JS/respond.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+<div class="gridContainer clearfix">
+  <div id="divclientlist" style="margin-top:-25px;" class="contact">
+                <fieldset class="contact-inner">
+                <p class="contact-label" style="font-size:24px;text-align:center;">CLIENT LIST</p>
+                <table width="98%" id="listtable">
+                	
+                </table>
+                </fieldset>
+                
+           </div>
+</div>
+<script type="text/javascript">
+GetClient();
+function GetClient()
+{
+        $.ajax
+              ({
+                  type: "POST",
+                  url: "default.aspx/GetClient",
+                  contentType: "application/json;charset=utf-8",
+                  dataType: "json",
+                  success: PostGetClient,
+                  error: function(err) {
+
+                  }
+              });
+  }
+
+function PostGetClient(result)
+{
+	var JsonObject = JSON.parse(result.d);
+    var drop=document.getElementById("selectcompany");
+var _table= document.getElementById('listtable');
+	for(var i=0;i<JsonObject.length;i++)
+    {
+	var clientid='txtclientidlist'+i;
+	var clientname='txtclientnamelist'+i;
+	var amount='txtamtchargelist'+i;
+	var editid='btneditlist'+i;
+	var tid='btntd'+i;
+	var bill='txtbilllist'+i;
+	var companyname='txtcompanyname'+i;
+	var dropid='droptd'+i;
+		_table.innerHTML+='<tr><td><p class="contact-label">CLIENT ID : </p></td><td><p class="contact-input"><input type="text" disabled="true" autofocus id="'+clientid+'" value="'+JsonObject[i].CLIENT_ID+'"></p></td><td><p class="contact-label">CLIENT NAME : </p></td><td><p class="contact-input"><input type="text" disabled="true" id="'+clientname+'" value="'+JsonObject[i].CLIENT_NAME+'"></p></td></tr><tr><td><p class="contact-label">AMOUNT : </p></td><td><p class="contact-input"><input type="text" disabled="true" id="'+amount+'" value="'+JsonObject[i].AMT_CHARGE+'"></p></td><td><p class="contact-label">BILL TO : </p></td><td id="'+dropid+'"><p class="contact-input"><label for="select" class="select"><select name="subject" id="'+bill+'" disabled="true"><option value='+JsonObject[i].BILLING_ID+'>'+JsonObject[i].BILL_TO+'</option></select></label></p></td></tr><tr><td><p class="contact-label">COMPANY : </p></td><td><p class="contact-input"><label for="select" class="select"><select name="subject" disabled="true" id="'+companyname+'"><option value='+JsonObject[i].COMPANY_ID+'>'+JsonObject[i].NAME+'</option></select></label></p></td><td id="'+tid+'" colspan="2"><p class="contact-submit"><input type="submit" value="EDIT" id="'+editid+'" onclick="editclick(this);"></p></td></tr><tr><td colspan="4"><hr/></td></tr>';
+	}
+}
+	
+	function editclick(sender)
+	{
+		var n=sender.id.split('btneditlist');
+		var uid='btnupdatelist'+n[1];
+		var cid='btncanclelist'+n[1];
+		var bill='txtbilllist'+n[1];
+		var _tabledata=document.getElementById('btntd'+n[1]);
+		_tabledata.innerHTML='<table><tr><td><p class="contact-submit"><input type="submit" value="UPDATE" id="'+uid+'" onclick="updateclick(this);"></p></td><td><p class="contact-submit"><input type="submit" value="CANCLE" id="'+cid+'" onclick="cancleclick(this);"></p></td></tr></table>';
+		document.getElementById('txtclientnamelist'+n[1]).disabled=false;
+		document.getElementById('txtamtchargelist'+n[1]).disabled=false;
+	}
+	function cancleclick(sender)
+	{
+		/*var n=sender.id.split('btncanclelist');
+		var editid='btneditlist'+n[1];
+		var _tabledata=document.getElementById('btntd'+n[1]);
+		_tabledata.innerHTML='<p class="contact-submit"><input type="submit" value="EDIT" id="'+editid+'"  onclick="editclick(this);"></p>';
+		document.getElementById('txtclientnamelist'+n[1]).disabled=true;
+		document.getElementById('txtamtchargelist'+n[1]).disabled=true;*/
+		location.reload();
+		
+		
+	}
+	function updateclick(sender)
+	{
+		var n=sender.id.split('btnupdatelist');
+		var clientid=document.getElementById('txtclientidlist'+n[1]).value;
+		var clientname=document.getElementById('txtclientnamelist'+n[1]).value;
+		var amountcharge=document.getElementById('txtamtchargelist'+n[1]).value;
+		var bill=document.getElementById('txtbilllist'+n[1]);
+		bill=bill.options[bill.selectedIndex].value;
+		var company=document.getElementById('txtcompanyname'+n[1]);
+		company=company.options[company.selectedIndex].value;
+		
+
+	var params = "{'ClientId':'"+clientid+"','ClientName':'"+clientname+"','Charge':'"+amountcharge+"','billingId':'"+bill+"','companyId':'"+company+"'}";
+	$.ajax
+              ({
+                  type: "POST",
+                  url: "default.aspx/EditClient",
+				  data:params,
+                  contentType: "application/json;charset=utf-8",
+                  dataType: "json",
+                  success: PostUpdate,
+                  error: function(err) {
+
+                  }
+              });
+	}
+	function PostUpdate(result)
+{
+	var JsonObject = JSON.parse(result.d);
+            var UPDATE = JsonObject[0].UPDATE;
+            if(UPDATE=="True")
+	          {
+	            alert("Client successfully Updated");
+	            //window.location="company.html";
+				//location.href="company.html";
+				location.reload();
+	          }
+	          else if(UPDATE=="false")
+	          {
+	            alert("Client is not Updated");
+	          }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Untitled Document</title>
+<link href="Css/boilerplate.css" rel="stylesheet" type="text/css">
+<link href="Css/addproject.css" rel="stylesheet" type="text/css">
+<link href="Css/profile.css" rel="stylesheet" type="text/css">
+<!-- 
+To learn more about the conditional comments around the html tags at the top of the file:
+paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+
+Do the following if you're using your customized build of modernizr (http://www.modernizr.com/):
+* insert the link to your js here
+* remove the link below to the html5shiv
+* add the "no-js" class to the html tags at the top
+* you can also remove the link to respond.min.js if you included the MQ Polyfill in your modernizr build 
+-->
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="JS/respond.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+
+//	function addclick()
+//{
+//	var _check=Check();
+//	if(_check)
+//	{
+//	var projectname=document.getElementById('txtprojectname').value;
+//	var bugid=document.getElementById('txtbugid').value;
+//	var starttime=document.getElementById('txtstarttime').value;
+//	var endtime=document.getElementById('txtendtime').value;
+////	var type
+//	var desc=document.getElementById('txtdesc').value;
+//	var action=document.getElementById('txtactiontaken').value;
+//	var params = 'ProjectName='+projectname+'&Bugid='+bugid+'&Project_type_id=WEBEX&bugdesc='+desc+'&start_st='+starttime+'&end_dt='+endtime+'&user_id=DEV.RADIQAL@GMAIL.COM&action_taken='+action;
+//   var xmlHttpReq = new XMLHttpRequest();
+//   xmlHttpReq.open("POST", "http://192.168.1.101:9012/Projecttracker.asmx/AddProject", false);
+//   xmlHttpReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+//   alert("before");
+//   var s="hello";
+//   xmlHttpReq.send(params);
+//   alert("after");
+//   alert(xmlHttpReq.responseText); 
+//   }
+//}
+
+function cancelclick()
+{
+  window.location="projectpage.html";
+}
+
+function add()
+{
+var _check=Check();
+	if(_check)
+	{
+	var company=document.getElementById('selectcompany');
+	company=company.options[company.selectedIndex].value;
+	var client=document.getElementById('selectclient');
+	client=client.options[client.selectedIndex].value;
+	var bugid=document.getElementById('txtbugid').value;
+	var starttime=document.getElementById('txtstarttime').value;
+	var endtime=document.getElementById('txtendtime').value;
+	var desc=document.getElementById('txtdesc').value;
+	var action=document.getElementById('txtactiontaken').value;
+	var contact=document.getElementById('txtcontactperson').value;
+	var user_id=sessionStorage.userid;
+	var ptype=document.getElementById('select');
+	ptype=ptype.options[ptype.selectedIndex].value;
+	
+	var params = "{'client_id':'"+client+"','company_id':'"+company+"','Bugid':'"+bugid+"','Project_type_id':'"+ptype+"','bugdesc':'"+desc+"','start_st':'"+starttime+"','end_dt':'"+endtime+"','user_id':'"+user_id+"' ,'action_taken':'"+action+"' ,'contact_person':'"+contact+"'}";
+        $.ajax
+              ({
+                  type: "POST",
+                  url: "default.aspx/AddProject",
+                  data: params,
+                  contentType: "application/json;charset=utf-8",
+                  dataType: "json",
+                  success: PostSubmit,
+                  error: function(err) {
+
+                  }
+              });
+  }
+}
+
+function PostSubmit(result)
+{
+	var JsonObject = JSON.parse(result.d);
+            var ADD = JsonObject[0].ADD;
+            if(ADD=="True")
+	          {
+	            alert("Bug successfully added");
+	            window.location="projectpage.html";
+	          }
+	          else if(ADD=="false")
+	          {
+	            alert("Bug is not added");
+	          }
+}
+function Check()
+{
+	var company=document.getElementById('selectcompany');
+	company=company.options[company.selectedIndex].value;
+	var client=document.getElementById('selectclient');
+	client=client.options[client.selectedIndex].value;
+	var bugid=document.getElementById('txtbugid').value;
+	var starttime=document.getElementById('txtstarttime').value;
+	var currentdate=new Date();
+	var sdate=new Date(starttime);
+	var sdiff=sdate-currentdate;
+	var endtime=document.getElementById('txtendtime').value;
+	var edate=new Date(endtime);
+	var ediff=edate-currentdate;
+	var datediff = sdate-edate;
+//	var type
+	var desc=document.getElementById('txtdesc').value;
+	var action=document.getElementById('txtactiontaken').value;
+	var ptype=document.getElementById('select');
+	ptype=ptype.options[ptype.selectedIndex].value;
+	var checkvalue=false;
+	if(company=="default")
+	{
+		alert("Please Select Company");
+	}
+	else if(client=="default")
+	{
+		alert("Please Select Client");
+	}
+	else if(bugid=="")
+	{
+		alert("Please Enter BugID");
+	}
+	else if(starttime=="")
+	{
+		alert("Please Enter Start Time");
+	}
+	else if(desc=="")
+	{
+		alert("Please Enter Description");
+	}
+	else if(action=="")
+	{
+		alert("Please Enter Actions");
+	}
+	else if(ptype=="default")
+	{
+	  alert("Please Select Project Type"); 
+	}
+	else if(datediff>0)
+	{
+	  alert("Please Enter New Date Which Is > Start Date");
+	}
+	else if(sdiff>0)
+	{
+	  alert("Please Enter New Start Date Which Is <= Current Datetime");
+	}
+	else if(ediff>0)
+	{
+	  alert("Please Enter New End Date Which Is <= Current Date");
+	}
+	else
+	{
+		checkvalue=true;
+	}
+	return checkvalue;
+}
+
+function populatedropdown()
+{
+  $.ajax
+              ({
+                  type: "POST",
+                  url: "default.aspx/GetProject_Type_Id",
+                  contentType: "application/json;charset=utf-8",
+                  dataType: "json",
+                  success: CreateDropdown,
+                  error: function(err) {
+
+                  }
+              });
+}
+function CreateDropdown(result)
+{
+  var JsonObject = JSON.parse(result.d);
+    var drop=document.getElementById("select");
+   drop.innerHTML='<option value="default" selected>CHOOSE PROJECT TYPE ...</option>';
+    for(var i=0;i<JsonObject.length;i++)
+    {
+      drop.innerHTML+='<option value="'+JsonObject[i].PROJECT_TYPE_ID+'">'+JsonObject[i].DESCRIPTION+'</option>';
+    }
+}
+
+function companydropdown()
+{
+        $.ajax
+              ({
+                  type: "POST",
+                  url: "default.aspx/GetCompany",
+                  contentType: "application/json;charset=utf-8",
+                  dataType: "json",
+                  success: PostCompany,
+                  error: function(err) {
+
+                  }
+              });
+  }
+
+function PostCompany(result)
+{
+	var JsonObject = JSON.parse(result.d);
+    var drop=document.getElementById("selectcompany");
+   	drop.innerHTML='<option value="default" selected>SELECT COMPANY ...</option>';
+    for(var i=0;i<JsonObject.length;i++)
+    {
+   
+      drop.innerHTML+='<option value="'+JsonObject[i].COMPANY_ID+'">'+JsonObject[i].NAME+'</option>';
+    }       
+}
+
+
+function clientdropdown(comp)
+{
+
+  if(!comp =="")
+  {
+	var params = "{'companyId':'"+comp+"'}";
+
+        $.ajax
+              ({
+                  type: "POST",
+                  url: "default.aspx/getCompanyClients",
+                  data : params,
+                  contentType: "application/json;charset=utf-8",
+                  dataType: "json",
+                  success: PostClient,
+                   error: function(err) {
+
+                  }
+              });
+              }
+              else
+              {
+               var drop=document.getElementById("selectclient");
+             	drop.innerHTML='<option value="default" selected>SELECT CLIENT ...</option>';
+              }
+  }
+
+function errorco(err)
+{
+  alert(err);
+}
+
+
+function PostClient(result)
+{
+	var JsonObject = JSON.parse(result.d);
+    var drop=document.getElementById("selectclient");
+   	drop.innerHTML='<option value="default" selected>SELECT CLIENT ...</option>';
+    for(var i=0;i<JsonObject.length;i++)
+    {
+      drop.innerHTML+='<option value="'+JsonObject[i].CLIENT_ID+'">'+JsonObject[i].CLIENT_NAME+'</option>';
+    }       
+}
+
+ function YourChangeFun(ddl)
+      {
+         selcomp = document.getElementById('selectcompany').value
+         
+         if(!selcomp =="")
+         {
+         clientdropdown(selcomp );
+         }
+      }
+</script>
+</head>
+<body>
+<div class="gridContainer clearfix">
+  	<div id="divaddproject" class="contact">
+                <fieldset class="contact-inner">
+                <p class="contact-label" style="font-size:24px;">ADD BUG DETAILS</p>
+                <table>
+                  	<tr>
+                    	<td width="50%">
+                        <p class="contact-input">
+                        	<label for="selectcompany" class="select">
+                              <select name="subject" id="selectcompany" onchange="YourChangeFun(this);">
+                              <script type="text/javascript">
+								companydropdown();
+							  </script>
+                              </select>
+                            </label>
+                        </p>
+                        </td>
+                        <td width="50%">
+                        <p class="contact-input">
+                        	<label for="selectclient" class="select">
+                              <select name="subject" id="selectclient">
+                              	<script type="text/javascript">
+									clientdropdown("");
+								</script>
+                              </select>
+                            </label>
+                        </p>
+                        </td>
+                   </tr>
+                 </table>
+                <p class="contact-input">
+                  <input type="text" name="name" placeholder="BUG ID ..." id="txtbugid">
+                </p>
+    
+                  <p class="contact-input">
+                    <input type="datetime-local" name="name" placeholder="START TIME ..." id="txtstarttime">      </p>
+                    
+                    <p class="contact-input">
+                    <input type="datetime-local" name="name" placeholder="END TIME ..." id="txtendtime">      </p>
+                    
+                    <p class="contact-input">
+        <label for="select" class="select">
+          <select name="subject" id="select">
+          <script type="text/javascript">
+		  	populatedropdown();
+		  </script>
+          </select>
+        </label>
+      </p>
+                    
+                    <p class="contact-input">
+        <textarea name="message" placeholder="DESCRIPTION ..." id="txtdesc" style="width:98%;"></textarea>
+      </p>
+    <p class="contact-input">
+                  <input type="text" name="name" placeholder="ACTION TAKEN ..." id="txtactiontaken">
+                </p>
+				<p class="contact-input">
+                  <input type="text" name="name" placeholder="CONTACT PERSON ..." id="txtcontactperson">
+                </p>
+                  <p class="contact-submit">
+                    <input type="submit" value="ADD BUG DETAIL" onClick="add();">
+                    <input type="submit" value="CANCEL" onClick="cancelclick();">
+                  </p>
+                  
+                </fieldset>
+			</div>
+</div>
+<script type="text/javascript">
+</script>
+</body>
+</html>

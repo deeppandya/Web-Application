@@ -1,0 +1,17 @@
+D:\Projects\Working\MobileDevelopement\AndroidWS\AndroidWSCode\AndroidWS\bin\AndroidWS.dll
+D:\Projects\Working\MobileDevelopement\AndroidWS\AndroidWSCode\AndroidWS\bin\AndroidWS.pdb
+D:\Projects\Working\MobileDevelopement\AndroidWS\AndroidWSCode\AndroidWS\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Projects\Working\MobileDevelopement\AndroidWS\AndroidWSCode\AndroidWS\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Projects\Working\MobileDevelopement\AndroidWS\AndroidWSCode\AndroidWS\bin\Microsoft.Practices.ObjectBuilder.dll
+D:\Projects\Working\MobileDevelopement\AndroidWS\AndroidWSCode\AndroidWS\bin\Microsoft.Practices.EnterpriseLibrary.Common.pdb
+D:\Projects\Working\MobileDevelopement\AndroidWS\AndroidWSCode\AndroidWS\bin\Microsoft.Practices.EnterpriseLibrary.Common.xml
+D:\Projects\Working\MobileDevelopement\AndroidWS\AndroidWSCode\AndroidWS\bin\log4net.pdb
+D:\Projects\Working\MobileDevelopement\AndroidWS\AndroidWSCode\AndroidWS\bin\log4net.xml
+D:\Projects\Working\MobileDevelopement\AndroidWS\AndroidWSCode\AndroidWS\bin\Microsoft.Practices.EnterpriseLibrary.Data.pdb
+D:\Projects\Working\MobileDevelopement\AndroidWS\AndroidWSCode\AndroidWS\bin\Microsoft.Practices.EnterpriseLibrary.Data.xml
+D:\Projects\Working\MobileDevelopement\AndroidWS\AndroidWSCode\AndroidWS\bin\Microsoft.Practices.EnterpriseLibrary.Logging.pdb
+D:\Projects\Working\MobileDevelopement\AndroidWS\AndroidWSCode\AndroidWS\bin\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+D:\Projects\Working\MobileDevelopement\AndroidWS\AndroidWSCode\AndroidWS\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\Working\MobileDevelopement\AndroidWS\AndroidWSCode\AndroidWS\obj\Debug\AndroidWS.dll
+D:\Projects\Working\MobileDevelopement\AndroidWS\AndroidWSCode\AndroidWS\obj\Debug\AndroidWS.pdb
+D:\Projects\Working\MobileDevelopement\AndroidWS\AndroidWSCode\AndroidWS\bin\AndroidWS.dll.config

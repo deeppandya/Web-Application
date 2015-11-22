@@ -1,0 +1,139 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Untitled Document</title>
+<link href="Css/boilerplate.css" rel="stylesheet" type="text/css">
+<link href="Css/companylist.css" rel="stylesheet" type="text/css">
+<!-- 
+To learn more about the conditional comments around the html tags at the top of the file:
+paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+
+Do the following if you're using your customized build of modernizr (http://www.modernizr.com/):
+* insert the link to your js here
+* remove the link below to the html5shiv
+* add the "no-js" class to the html tags at the top
+* you can also remove the link to respond.min.js if you included the MQ Polyfill in your modernizr build 
+-->
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="JS/respond.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+<div class="gridContainer clearfix">
+              <div id="divcompanylist" style="margin-top:-25px;" class="contact">
+                <fieldset class="contact-inner">
+                <p class="contact-label" style="font-size:24px;">COMPANY LIST</p>
+                <table width="98%" id="listtable">
+                	<tr>
+                	      <td>
+                            <p class="contact-label">COMPANY NO : </p>
+                        </td>
+                        <td>
+                        	<p class="contact-label">COMPANY ID : </p>
+                        </td>
+                        <td>
+                        	<p class="contact-label">COMPANY NAME : </p>
+                        </td>
+                    </tr>
+                </table>
+                </fieldset>
+                
+           </div>
+</div>
+<script type="text/javascript">
+
+$.ajax
+              ({
+                  type: "POST",
+                  url: "default.aspx/GetCompany",
+                  contentType: "application/json;charset=utf-8",
+                  dataType: "json",
+                  success: PostList,
+                  error: function(err) {
+
+                  }
+              });
+
+function PostList(result)
+{
+	var JsonObject = JSON.parse(result.d);
+	var _table= document.getElementById('listtable');
+	for ( var _object in JsonObject )          
+   {
+	var i=_object;
+	var cid='txtcompanyidlist'+i;
+	var cno='txtcompanynolist'+i;
+	var cname='txtcompanynamelist'+i;
+	var bid='btneditlist'+i;
+	var tid='btntd'+i;
+		_table.innerHTML+='<tr><td width="25%"><p class="contact-input"><input type="text" disabled="true" autofocus id="'+cno+'" value="'+JsonObject[i].COMPANY_NO+'"></p></td><td width="25%"><p class="contact-input"><input type="text" disabled="true" id="'+cid+'" value="'+JsonObject[i].COMPANY_ID+'"></p></td><td width="25%"><p class="contact-input"><input type="text" disabled="true" id="'+cname+'" VALUE="'+JsonObject[i].NAME+'"></p></td><td id="'+tid+'" width="25%" style="text-align:left;"><p class="contact-submit"><input type="submit" value="EDIT" id="'+bid+'" onclick="editclick(this);"></p></td></tr><tr><td colspan="4"><hr/></td></tr>';
+	}
+}
+	function editclick(sender)
+	{
+		var n=sender.id.split('btneditlist');
+		var uid='btnupdatelist'+n[1];
+		var cid='btncanclelist'+n[1];
+		var _tabledata=document.getElementById('btntd'+n[1]);
+		_tabledata.innerHTML='<table><tr><td><p class="contact-submit"><input type="submit" value="UPDATE" id="'+uid+'" onclick="updateclick(this);"></p></td><td><p class="contact-submit"><input type="submit" value="CANCLE" id="'+cid+'" onclick="cancleclick(this);"></p></td></tr></table>';
+		document.getElementById('txtcompanyidlist'+n[1]).disabled=true;
+		document.getElementById('txtcompanynamelist'+n[1]).disabled=false;
+		
+	}
+	function cancleclick(sender)
+	{
+		/*var n=sender.id.split('btncanclelist');
+			var bid='btneditlist'+n[1];
+		var _tabledata=document.getElementById('btntd'+n[1]);
+		_tabledata.innerHTML='<p class="contact-submit"><input type="submit" value="EDIT" id="'+bid+'" onclick="editclick(this);"></p>';
+		document.getElementById('txtcompanyidlist'+n[1]).disabled=true;
+		document.getElementById('txtcompanynamelist'+n[1]).disabled=true;*/
+		location.reload();
+	}
+	function updateclick(sender)
+	{
+		var n=sender.id.split('btnupdatelist');
+ 	var cid=document.getElementById('txtcompanyidlist'+n[1]).value;
+	var desc=document.getElementById('txtcompanynamelist'+n[1]).value;
+	var params = "{'CompanyId':'"+cid+"','Desc':'"+desc+"'}";
+	$.ajax
+              ({
+                  type: "POST",
+                  url: "default.aspx/EditCompany",
+				  data:params,
+                  contentType: "application/json;charset=utf-8",
+                  dataType: "json",
+                  success: PostUpdate,
+                  error: function(err) {
+
+                  }
+              });
+	}
+	function PostUpdate(result)
+{
+	var JsonObject = JSON.parse(result.d);
+            var UPDATE = JsonObject[0].UPDATE;
+            if(UPDATE=="True")
+	          {
+	            alert("Company successfully Updated");
+	            //window.location="company.html";
+				//location.href="company.html";
+				location.reload();
+	          }
+	          else if(UPDATE=="false")
+	          {
+	            alert("Company is not Updated");
+	          }
+}
+</script>
+</body>
+</html>

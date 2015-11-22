@@ -1,0 +1,6 @@
+c:\users\deep\documents\visual studio 2013\Projects\AWSDemo\AWSDemo\bin\AWSDemo.dll.config
+c:\users\deep\documents\visual studio 2013\Projects\AWSDemo\AWSDemo\bin\AWSDemo.dll
+c:\users\deep\documents\visual studio 2013\Projects\AWSDemo\AWSDemo\bin\AWSDemo.pdb
+c:\users\deep\documents\visual studio 2013\Projects\AWSDemo\AWSDemo\obj\Debug\AWSDemo.csprojResolveAssemblyReference.cache
+c:\users\deep\documents\visual studio 2013\Projects\AWSDemo\AWSDemo\obj\Debug\AWSDemo.dll
+c:\users\deep\documents\visual studio 2013\Projects\AWSDemo\AWSDemo\obj\Debug\AWSDemo.pdb

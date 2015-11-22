@@ -1,0 +1,11 @@
+D:\Projects\Working\MobileDevelopement\AndroidWS\AndroidWSCode\AndroidWebApp\bin\AndroidWebApp.dll
+D:\Projects\Working\MobileDevelopement\AndroidWS\AndroidWSCode\AndroidWebApp\bin\AndroidWebApp.pdb
+D:\Projects\Working\MobileDevelopement\AndroidWS\AndroidWSCode\AndroidWebApp\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\Working\MobileDevelopement\AndroidWS\AndroidWSCode\AndroidWebApp\obj\Debug\AndroidWebApp.dll
+D:\Projects\Working\MobileDevelopement\AndroidWS\AndroidWSCode\AndroidWebApp\obj\Debug\AndroidWebApp.pdb
+E:\Deep Mobile\AndroidSecuritySource\AndroidWebsite&WS\AndroidWebApp\bin\AndroidWebApp.dll.config
+E:\Deep Mobile\AndroidSecuritySource\AndroidWebsite&WS\AndroidWebApp\bin\AndroidWebApp.dll
+E:\Deep Mobile\AndroidSecuritySource\AndroidWebsite&WS\AndroidWebApp\bin\AndroidWebApp.pdb
+E:\Deep Mobile\AndroidSecuritySource\AndroidWebsite&WS\AndroidWebApp\obj\Debug\AndroidWebApp.csprojResolveAssemblyReference.cache
+E:\Deep Mobile\AndroidSecuritySource\AndroidWebsite&WS\AndroidWebApp\obj\Debug\AndroidWebApp.dll
+E:\Deep Mobile\AndroidSecuritySource\AndroidWebsite&WS\AndroidWebApp\obj\Debug\AndroidWebApp.pdb

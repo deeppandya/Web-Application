@@ -1,0 +1,44 @@
+C:\Users\ab\Desktop\ProjectTracker\ProjectTracker\bin\ProjectTracker.dll
+C:\Users\ab\Desktop\ProjectTracker\ProjectTracker\bin\ProjectTracker.pdb
+C:\Users\ab\Desktop\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\ab\Desktop\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\ab\Desktop\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+C:\Users\ab\Desktop\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.ObjectBuilder.dll
+C:\Users\ab\Desktop\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.EnterpriseLibrary.Common.pdb
+C:\Users\ab\Desktop\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\ab\Desktop\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.EnterpriseLibrary.Data.pdb
+C:\Users\ab\Desktop\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\ab\Desktop\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.EnterpriseLibrary.Logging.pdb
+C:\Users\ab\Desktop\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+C:\Users\ab\Desktop\ProjectTracker\ProjectTracker\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ab\Desktop\ProjectTracker\ProjectTracker\obj\Debug\ProjectTracker.dll
+C:\Users\ab\Desktop\ProjectTracker\ProjectTracker\obj\Debug\ProjectTracker.pdb
+C:\Projects\Working\ProjectTracker\ProjectTracker\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Working\ProjectTracker\ProjectTracker\obj\Debug\ProjectTracker.dll
+C:\Projects\Working\ProjectTracker\ProjectTracker\obj\Debug\ProjectTracker.pdb
+C:\Projects\Working\ProjectTracker\ProjectTracker\bin\ProjectTracker.dll
+C:\Projects\Working\ProjectTracker\ProjectTracker\bin\ProjectTracker.pdb
+C:\Projects\Working\ProjectTracker\ProjectTracker\bin\log4net.dll
+C:\Projects\Working\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.ObjectBuilder.dll
+C:\Projects\Working\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.EnterpriseLibrary.Common.pdb
+C:\Projects\Working\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Projects\Working\ProjectTracker\ProjectTracker\bin\log4net.pdb
+C:\Projects\Working\ProjectTracker\ProjectTracker\bin\log4net.xml
+C:\Projects\Working\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.EnterpriseLibrary.Data.pdb
+C:\Projects\Working\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Projects\Working\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.EnterpriseLibrary.Logging.pdb
+C:\Projects\Working\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+E:\Deep Mobile\Project Tracker Latest\ProjectTracker\ProjectTracker\bin\ProjectTracker.dll
+E:\Deep Mobile\Project Tracker Latest\ProjectTracker\ProjectTracker\bin\ProjectTracker.pdb
+E:\Deep Mobile\Project Tracker Latest\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.ObjectBuilder.dll
+E:\Deep Mobile\Project Tracker Latest\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.EnterpriseLibrary.Common.pdb
+E:\Deep Mobile\Project Tracker Latest\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.EnterpriseLibrary.Common.xml
+E:\Deep Mobile\Project Tracker Latest\ProjectTracker\ProjectTracker\bin\log4net.pdb
+E:\Deep Mobile\Project Tracker Latest\ProjectTracker\ProjectTracker\bin\log4net.xml
+E:\Deep Mobile\Project Tracker Latest\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.EnterpriseLibrary.Data.pdb
+E:\Deep Mobile\Project Tracker Latest\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.EnterpriseLibrary.Data.xml
+E:\Deep Mobile\Project Tracker Latest\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.EnterpriseLibrary.Logging.pdb
+E:\Deep Mobile\Project Tracker Latest\ProjectTracker\ProjectTracker\bin\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+E:\Deep Mobile\Project Tracker Latest\ProjectTracker\ProjectTracker\obj\Debug\ResolveAssemblyReference.cache
+E:\Deep Mobile\Project Tracker Latest\ProjectTracker\ProjectTracker\obj\Debug\ProjectTracker.dll
+E:\Deep Mobile\Project Tracker Latest\ProjectTracker\ProjectTracker\obj\Debug\ProjectTracker.pdb

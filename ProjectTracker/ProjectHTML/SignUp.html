@@ -1,0 +1,153 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Untitled Document</title>
+<link href="Css/boilerplate.css" rel="stylesheet" type="text/css">
+<link href="Css/signup.css" rel="stylesheet" type="text/css">
+<!-- 
+To learn more about the conditional comments around the html tags at the top of the file:
+paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+
+Do the following if you're using your customized build of modernizr (http://www.modernizr.com/):
+* insert the link to your js here
+* remove the link below to the html5shiv
+* add the "no-js" class to the html tags at the top
+* you can also remove the link to respond.min.js if you included the MQ Polyfill in your modernizr build 
+-->
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="JS/respond.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+<div class="gridContainer clearfix">
+  	<div id="divsignup" class="sign-up">
+    	<h1 class="sign-up-title">Sign up in seconds</h1>
+    <input type="text" class="sign-up-input" id="txtemail" placeholder="Enter Your Email-Id" autofocus>
+    <input type="password" class="sign-up-input" id="txtpassword" placeholder="Choose a password">
+    <input type="password" class="sign-up-input" id="txtconfirmpassword" placeholder="Confirm password">
+    <input type="text" class="sign-up-input" id="txtfname" placeholder="Enter Your First Name">
+    <input type="text" class="sign-up-input" id="txtlname" placeholder="Enter Your Last Name">
+    <input type="text" class="sign-up-input" id="txtabb" placeholder="Enter Abbreviation">
+    <input type="submit" value="Sign me up!" id="btnsubmit" onClick="signupclick();" class="sign-up-button">
+    </div>
+</div>
+<script type="text/javascript">
+//function signupclick()
+//{
+//	var _check=Check();
+//	if(_check)
+//	{
+//	var email=document.getElementById('txtemail').value;
+//	var password=document.getElementById('txtpassword').value;
+//	var fname=document.getElementById('txtfname').value;
+//	var lname=document.getElementById('txtlname').value;
+//	var params = 'UserId='+email+'&password='+password+'&fname='+fname+'&lname='+lname;
+//   var xmlHttpReq = new XMLHttpRequest();
+//   xmlHttpReq.open("POST", "http://192.168.1.101:9012/Projecttracker.asmx/RegisterUser", false);
+//   xmlHttpReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+//   alert("before");
+//   var s="hello";
+//   xmlHttpReq.send(params);
+//   alert("after");
+//   alert(xmlHttpReq.responseText); 
+//   }
+//}
+function signupclick()
+{
+  var _check=Check();
+	if(_check)
+	{
+	  var email=document.getElementById('txtemail').value;
+	  var password=document.getElementById('txtpassword').value;
+	  var fname=document.getElementById('txtfname').value;
+	  var lname=document.getElementById('txtlname').value;
+	  var abb=document.getElementById('txtabb').value;
+	  
+	  var params = "{'UserId':'"+email+"','password':'"+password+"','fname':'"+fname+"','lname':'"+lname+"','abb':'"+abb+"'}";
+            $.ajax
+              ({
+                  type: "POST",
+                  url: "default.aspx/RegisterUser",
+                  data: params,
+                  contentType: "application/json;charset=utf-8",
+                  dataType: "json",
+                  success: PostSignUp,
+                  error: function(err) {
+
+                  }
+              });
+	}
+}
+function PostSignUp(result)
+{
+   var JsonObject = JSON.parse(result.d);
+            var SIGNUP = JsonObject[0].SIGNUP;
+            if(SIGNUP=="True")
+			{
+				var email=document.getElementById('txtemail').value;
+				sessionStorage.setItem("userid", email);
+				window.location="Profile.html";				
+			}
+			else if(SIGNUP=="False")
+			{
+				alert("Sign Up failed");
+			}
+}
+function Check()
+{
+	var email=document.getElementById('txtemail').value;
+	var password=document.getElementById('txtpassword').value;
+	var fname=document.getElementById('txtfname').value;
+	var lname=document.getElementById('txtlname').value;
+	var abb=document.getElementById('txtabb').value;
+	var confirmpassword=document.getElementById('txtconfirmpassword').value;
+	var checkvalue=false;
+	if(email=="")
+	{
+		alert("Please Enter user Id");
+	}
+	else if(password=="")
+	{
+		alert("Please Enter Password");
+	}
+	else if(confirmpassword=="")
+	{
+		alert("Please Enter Password for confirmation");
+	}
+	if(fname=="")
+	{
+		alert("Please Enter Firstname");
+	}
+	else if(lname=="")
+	{
+		alert("Please Enter Lastname");
+	}
+	else if(abb=="")
+	{
+		alert("Please Enter Abbreviation");
+	}
+	else if(password!="" && confirmpassword!="" && password!=confirmpassword)
+	{
+		alert("Please Confirm Password");
+	}
+	else
+	{
+		checkvalue=true;
+	}
+	return checkvalue;
+}
+</script>
+</body>
+</html>

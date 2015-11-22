@@ -1,0 +1,8 @@
+<publishData>
+  <publishTarget publishUrl="D:\Projects\Working\MobileDevelopement\PublishAndroidSecurity\">
+    <file relUrl="bin/AndroidWS.pdb" publishTime="03/19/2013 15:56:51" />
+    <file relUrl="AndroidSecurity.asmx" publishTime="03/19/2013 15:45:37" />
+    <file relUrl="bin/AndroidWS.dll" publishTime="03/19/2013 15:56:51" />
+    <file relUrl="Web.config" publishTime="03/19/2013 13:55:26" />
+  </publishTarget>
+</publishData>
